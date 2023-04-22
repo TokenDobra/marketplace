@@ -16,7 +16,7 @@
     "css-watch": "npm run css-main-watch",
 
 
-    "build": "nest build",
+    "build": "nest build && npm run css-once",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "npm run css-watch && nest start",
     "start:dev": "concurrently --kill-others \"npm run css-watch\" \"nest start --watch\"",
