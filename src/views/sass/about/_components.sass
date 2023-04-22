@@ -1,0 +1,248 @@
+.btn-white
+    @extend %display
+    @extend %font18
+    border: 2px solid #0C0C0C
+    border-radius: 11px
+    padding: 14px 30px
+    color: $black
+    transition: all 0.2s ease-in-out
+
+.btn-black
+    @extend %display
+    @extend %font18
+    color: white
+    border-radius: 13px
+    background: $black
+    padding: 22px 60px
+    transition: all 0.2s ease-in-out
+
+
+.btn-black:hover
+.btn-white:hover
+    background: #1A1A1A
+    color: white
+
+.item-nft
+    display: flex
+    flex-direction: column
+    transition: all 0.3s ease
+    align-items: start
+    justify-content: space-between
+    background-color: $black50
+    border-radius: 15px
+    height: 422px
+    width: 100%
+    background-size: cover !important
+    background-position: center !important
+    background-repeat: no-repeat !important
+    .tips
+        display: flex
+        flex-direction: column
+        align-items: end
+        padding: 16px 8px 0 0
+        gap: 8px
+        width: 100%
+        color: white
+        .tool
+            width: 100%
+            position: relative
+            display: flex
+            pointer-events: none
+            justify-content: end
+        .tool::before
+            content: attr(data-tool)
+            opacity: 0
+            transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out
+            position: absolute
+            padding: 10px
+            background-color: $black
+            border-radius: 11px
+            // top: -310%
+            left: 50%
+            transform: translate(-50%, -93px)
+            text-align: center
+            font-style: normal
+            font-weight: 500
+            font-size: 12px
+            width: 100%
+            max-width: 378px
+        .tool:hover::before
+            opacity: 1
+        .tip
+            @extend %font14
+            pointer-events: all
+            background-color: rgba(255, 255, 255, 0.2)
+            padding: 5px 10px
+            width: 100%
+            max-width: 82px
+            text-align: center
+            border-radius: 21px
+            cursor: pointer  
+            transition: background 0.3s ease
+        .tip:hover
+            background: rgba(0, 0, 0, 0.6)
+    .info
+        display: flex
+        flex-direction: column
+        justify-content: start
+        width: 100%
+        padding: 0px 20px 20px 20px
+        gap: 16px
+        color: white
+        .name
+            width: 100%
+            text-align: start
+            @extend %font18
+        .stats
+            display: flex
+            align-items: center
+            justify-content: space-between
+            width: 100%
+            .tool
+                width: 100%
+                position: relative
+                display: flex
+                pointer-events: none
+                justify-content: end
+            .tool::before
+                content: attr(data-tool)
+                opacity: 0
+                transition: all 0.3s ease-in-out
+                position: absolute
+                padding: 10px
+                background-color: $black
+                border-radius: 11px
+                // top: -310%
+                left: 50%
+                transform: translate(-50%, -93px)
+                text-align: center
+                font-style: normal
+                font-weight: 500
+                font-size: 12px
+                width: 100%
+                max-width: 378px
+            .tool:hover::before
+                opacity: 1
+            .tip2
+                pointer-events: all
+                background-color: unset
+                padding: 0
+                width: 100%
+                max-width: 82px
+                text-align: center
+                border-radius: 21px
+                cursor: pointer  
+                transition: background 0.3s ease
+        .price
+            font-style: normal
+            font-weight: 700
+            font-size: 24px
+            min-width: 82px
+        .count
+            @extend %font16
+        .progress-bar
+            width: 100%
+            height: 10px
+            background: rgba(255, 255, 255, 0.5)
+            border-radius: 8px
+            .status
+                background: #fff
+                min-width: 4%
+                width: 20%
+                height: 100%
+                border-radius: 8px
+        .tip
+            @extend %font14
+            padding: 2px 8px
+            max-width: 106px
+            cursor: default
+            background-color: rgba(255, 255, 255, 0.2)
+            text-align: center
+            border-radius: 21px
+.item-nft:hover
+    transform: translateY(-10px)
+.item-nft.hover
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dgn56mbcr/image/upload/v1672243379/%D1%82%D0%BE%D0%BA%D0%B5%D0%BD%20%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%20/image_6_muempf.png') !important
+
+
+// .pop-up
+//     display: none
+//     justify-content: center
+//     align-items: center
+//     width: 100vw
+//     height: 100vh
+//     background: rgba(0, 0, 0, 0.5)
+//     position: fixed
+//     top: 0
+//     left: 0
+//     z-index: 100000
+//     .content
+//         display: flex
+//         justify-content: center
+//         align-items: center
+//         background-color: #fff
+//         opacity: 0
+//         transition: opacity 0.4s ease
+//         padding: 10px
+//         border-radius: 15px
+//         gap: 40px
+//         .image
+//             background-image: url('https://res.cloudinary.com/dgn56mbcr/image/upload/v1672324857/%D1%82%D0%BE%D0%BA%D0%B5%D0%BD%20%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%20/img_ss03zt.png')
+//             width: 238px
+//             height: 484px
+//         .request
+//             display: flex
+//             flex-direction: column
+//             gap: 30px
+//             .text
+//                 display: flex
+//                 flex-direction: column
+//                 width: 576px
+//                 gap: 12px
+//                 p:nth-child(1)
+//                     font-style: normal
+//                     font-weight: 500
+//                     font-size: 24px
+//                     color: $black
+//                 p:nth-child(2)
+//                     font-style: normal
+//                     font-weight: 500
+//                     font-size: 18px
+//                     color: #333333
+//             .form
+//                 display: flex
+//                 justify-content: start
+//                 align-items: center
+//                 gap: 8px
+//                 p
+//                     padding: 16px 92px 16px 16px
+//                     border: 1px solid rgba(0, 0, 0, 0.2)
+//                     border-radius: 11px
+//                     font-style: normal
+//                     font-weight: 500
+//                     font-size: 18px
+//                     color: $black
+//                 button
+//                     display: flex
+//                     align-items: center
+//                     justify-content: center
+//                     padding: 14px 30px
+//                     color: $black
+//                     @extend %font18
+//                     gap: 12px
+//                     border: 2px solid #0C0C0C
+//                     border-radius: 11px
+//                     transition: all 0.2s ease
+//         .close
+//             display: flex
+//             height: 504px
+//             flex-direction: column
+//             align-items: start
+//             justify-content: flex-start
+//             cursor: pointer
+
+// .pop-up.open
+//     display: flex
+
+.content.open
+    opacity: 1

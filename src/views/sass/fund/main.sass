@@ -1,0 +1,367 @@
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    font-family: 'Montserrat', sans-serif
+
+html
+    height: 100%
+    scroll-behavior: smooth
+
+a:-webkit-any-link
+    text-decoration: none !important
+
+button
+    background: unset
+    border: unset
+    cursor: pointer
+
+@import vars
+@import components
+
+.container
+    max-width: 1360px
+    width: 100%
+    padding: 0
+    margin: 0 40px
+    @extend %display
+
+header
+    @extend %display
+    top: 0
+    width: 100%
+    z-index: 999
+    background-color: white
+    transition: 0.4s
+    position: fixed
+    padding: 16px 0
+    .top-header,
+    .container
+        display: flex
+        align-items: center
+        justify-content: space-between !important
+    .container
+        z-index: 888
+        transition: 0.4s
+
+header.fixed
+    padding: 12px 0
+
+.mobile-email
+    display: none
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    gap: 6px
+    @extend %font14
+    p
+        color: #9F9797
+    a
+        color: $black
+
+.navigation
+    @extend %display
+    // transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55)
+    // transition: all 0.5s ease
+    position: relative
+    gap: 30px
+    transition: all 0.4s ease
+    nav
+        @extend %display
+        gap: 30px
+        a
+            @extend %font16
+            color: $black50
+
+.open-mob-menu
+    // background-image: url('https://res.cloudinary.com/dgn56mbcr/image/upload/v1672229696/%D1%82%D0%BE%D0%BA%D0%B5%D0%BD%20%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%20/burger_menu_altino.svg')
+    border: none
+    background-color: #fff
+    display: none
+
+.responsive-buy-nft
+    width: 100%
+    @extend %display
+    .container
+        background: $yellow
+        border-radius: 20px
+        gap: 85px
+        padding: 94px 90px 94px 20px
+        .text
+            display: flex
+            flex-direction: column
+            width: 100%
+            gap: 20px
+            p:nth-child(1)
+                font-style: normal
+                font-weight: 500
+                font-size: 40px
+                color: $black
+            p:nth-child(2)
+                font-style: normal
+                font-weight: 500
+                font-size: 20px
+                color: $black
+        img
+            background: $black
+            width: 380px
+            height: 380px
+
+.responsive-footer
+    @extend %display
+    width: 100%
+    background: #F4F4F4
+    margin-top: 100px
+    .container
+        flex-direction: column
+        gap: 40px
+        margin: 50px 40px 40px
+        align-items: flex-start
+        .logo
+            display: flex
+            align-items: center
+            width: 100%
+    .links
+        display: flex
+        align-items: end
+        justify-content: space-between
+        width: 100%
+        .left-side
+            display: flex
+            align-items: end
+            nav
+                display: flex
+                flex-direction: column
+                gap: 12px
+                a
+                    @extend %font18
+                    color: rgba(0, 0, 0, 0.3)
+        .right-side
+            display: flex
+            gap: 82px
+            .head
+                @extend %font18
+                color: rgba(0, 0, 0, 0.3)
+            .info,
+            .contacts
+                display: flex
+                flex-direction: column
+                gap: 30px
+                nav
+                    display: flex
+                    flex-direction: column
+                    gap: 12px
+                    a
+                        color: $black
+                        @extend %font18
+
+.main-image
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100%
+    background-image: url('https://github.com/jamb17/token-dobra/blob/main/phound%20bg.png?raw=true')
+    background-position: center
+    background-size: cover
+    background-repeat: no-repeat
+    border-radius: 0 0 20px 20px
+    .container
+        display: flex
+        justify-content: flex-end
+        align-items: start
+        border-radius: 0 0 20px 20px
+        padding: 314px 0px 110px 0px
+        flex-direction: column
+        min-height: 668px
+        margin: 0 0 68px 40px
+        position: relative
+        h1
+            font-weight: 500
+            font-size: 55px
+            line-height: 105.9%
+            color: white 
+            max-width: 543px   
+        img
+            width: 168px
+            margin-bottom: 46px
+        .brief
+            background: #FFFFFF
+            box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.11)
+            border-radius: 13px
+            position: absolute
+            bottom: -116px
+            display: flex
+            padding: 20px 30px
+            gap: 40px
+            .divider
+                border: 2px solid rgba(0, 0, 0, 0.06)
+            .picture-quantity,
+            .nft-quantity
+                display: flex
+                flex-direction: column
+                gap: 4
+                p:nth-child(1)
+                    font-weight: 700
+                    font-size: 16px
+                    line-height: 24px
+                    color: rgba(0, 0, 0, 0.5)
+                p:nth-child(2)
+                    font-weight: 700
+                    font-size: 24px
+                    line-height: 36px  
+                    color: #0C0C0C   
+
+.description
+    display: flex
+    width: 100%
+    align-items: center
+    justify-content: center 
+    padding-left: 485px
+    padding-right: 184px
+    p
+        font-weight: 500
+        font-size: 18px
+        line-height: 27px
+        color: #0C0C0C
+        max-width: 771px
+        margin-top: 60px
+
+.nfts
+    display: flex
+    width: 100%
+    justify-content: center
+    align-items: center
+    margin-bottom: 50px
+    margin-top: 60px
+    .container
+        display: grid
+        grid-gap: 40px
+        grid-template-columns: 1fr 1fr 1fr 1fr
+        .item-nft:nth-child(4n+4)
+            .tool::before
+                left: -10%
+        .item-nft
+            background: url('https://res.cloudinary.com/dgn56mbcr/image/upload/v1672243379/%D1%82%D0%BE%D0%BA%D0%B5%D0%BD%20%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%20/image_6_muempf.png')
+            background-repeat: no-repeat !important
+            background-position: center !important
+            background-size: 100% !important
+            box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.13)
+            z-index: 1  
+            position: relative
+            img
+                position: absolute
+                width: 100%
+                height: 100%
+                border-radius: 15px
+            .bg
+                position: absolute
+                width: 100%
+                height: 100%
+                border-radius: 15px
+                z-index: 1
+                opacity: 0
+                background: rgba(0, 0, 0, 0.5)
+                transition: opacity 0.3s ease
+            .bg.active
+                opacity: 1   
+            .tips
+                z-index: 2
+            .bottom
+                    width: 100%
+                    display: flex
+                    flex-direction: column
+                    gap: 12px
+                    .info
+                        background-color: #fff
+                        color: $black
+                        border-radius: 0 0 15px 15px
+                        padding-top: 12px
+                        z-index: 1
+                        .stats
+                            z-index: 1
+                            .tip
+                                padding: 0
+                                background: unset
+                                color: #777777
+                                z-index: 10
+                        .progress-bar
+                            background: rgba(0, 0, 0, 0.19)
+                            backdrop-filter: blur(2px)
+                            .bar
+                                background: $black
+                        .count
+                            text-align: end
+                            color: #777777
+                    .name
+                        width: 100%
+                        text-align: start
+                        @extend %font18
+                        color: white
+                        padding-left: 20px
+                        opacity: 0
+                        transition: opacity 0.3s ease
+                        z-index: 1
+                    .name.hover
+                        opacity: 1
+            .tips .tip.hover
+                opacity: 1 !important
+                pointer-events: all !important
+            .tool
+                z-index: 99
+            .tool::before
+                // top: -340%
+                // left: -180%    
+                width: 300px
+                max-width: 378px
+                pointer-events: none
+                z-index: 200
+            .tool:hover::before
+                opacity: 1
+                .item-nft:nth-child(3)
+                    .tips
+                        .tool::before
+                            // top: -340%
+                            // left: -380%    
+                            transform: translate(-80%, -93px)
+                            width: 20vw
+                            max-width: 378px
+                .info
+                    .tool
+                        width: 100%
+                        position: relative
+                        display: flex
+                        pointer-events: none
+                        justify-content: end
+                    .tool::before
+                        content: attr(data-tool)
+                        opacity: 0
+                        transition: all 0.3s ease-in-out
+                        position: absolute
+                        padding: 10px
+                        background-color: $black
+                        border-radius: 11px
+                        // top: -310%
+                        left: 50%
+                        transform: translate(-80%, -93px)
+                        text-align: center
+                        font-style: normal
+                        font-weight: 500
+                        font-size: 12px
+                        width: 100%
+                        max-width: 378px
+                        color: white
+                        z-index: 100
+                    .tool:hover::before
+                        opacity: 1
+                    .tip2
+                        pointer-events: all
+                        background-color: unset
+                        padding: 0
+                        width: 100%
+                        max-width: 82px
+                        text-align: center
+                        border-radius: 21px
+                        cursor: pointer  
+                        transition: background 0.3s ease
+                .item-nft:hover
+                    transform: unset
