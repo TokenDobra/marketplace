@@ -7,10 +7,10 @@
   "license": "UNLICENSED",
   "scripts": {
     "css-main-minify": "css-minify -d public/assets/css/main -o public/assets/css/main/min",
-    "css-main-once": "node_modules/node-sass/bin/node-sass src/views/sass/main/ -o public/assets/css/main/ && npm run css-main-minify",
+    "css-main-once": "node_modules/node-sass/bin/node-sass src/views/sass/main/ -o public/assets/css/main/",
     "css-main-watch": "npm run css-main-once && node_modules/node-sass/bin/node-sass -w src/views/sass/main/ -o public/assets/css/main/ --watch",
     "css-artwork-minify": "css-minify -d public/assets/css/artwork -o public/assets/css/artwork/min",
-    "css-artwork-once": "node_modules/node-sass/bin/node-sass src/views/sass/artwork/ -o public/assets/css/artwork/ && npm run css-artwork-minify",
+    "css-artwork-once": "node_modules/node-sass/bin/node-sass src/views/sass/artwork/ -o public/assets/css/artwork/",
     "css-artwork-watch": "npm run css-artwork-once && node_modules/node-sass/bin/node-sass -w src/views/sass/artwork/ -o public/assets/css/artwork/ --watch",
     "js-copy": "copyfiles -u 2 \"src/views/js/**\" \"public/assets\"",
     "css-minify": "npm run css-main-minify && npm run css-artwork-minify",
