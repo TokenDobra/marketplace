@@ -38,5 +38,22 @@ export class MarketService {
         const result = await lastValueFrom(request);
         return result.data;
    }
+   async getOrganizationPage(subject)
+   {
+       const request = this.http
+                  .get(`https://api.tokendobra.ru/v.1.0.0/api/marketpoint/joincharible/organization`, {params:{subject}})
+
+                  .pipe(
+                          map((res) => res.data),
+                        )
+                  .pipe(
+                         catchError(() => {
+                              throw new ForbiddenException(`API not available`);
+                       }),
+                   );
+        const result = await lastValueFrom(request);
+        return result.data;
+   }
+
 
 }

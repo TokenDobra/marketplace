@@ -167,84 +167,87 @@
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dgn56mbcr/image/upload/v1672243379/%D1%82%D0%BE%D0%BA%D0%B5%D0%BD%20%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%20/image_6_muempf.png') !important
 
 
-// .pop-up
-//     display: none
-//     justify-content: center
-//     align-items: center
-//     width: 100vw
-//     height: 100vh
-//     background: rgba(0, 0, 0, 0.5)
-//     position: fixed
-//     top: 0
-//     left: 0
-//     z-index: 100000
-//     .content
-//         display: flex
-//         justify-content: center
-//         align-items: center
-//         background-color: #fff
-//         opacity: 0
-//         transition: opacity 0.4s ease
-//         padding: 10px
-//         border-radius: 15px
-//         gap: 40px
-//         .image
-//             background-image: url('https://res.cloudinary.com/dgn56mbcr/image/upload/v1672324857/%D1%82%D0%BE%D0%BA%D0%B5%D0%BD%20%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%20/img_ss03zt.png')
-//             width: 238px
-//             height: 484px
-//         .request
-//             display: flex
-//             flex-direction: column
-//             gap: 30px
-//             .text
-//                 display: flex
-//                 flex-direction: column
-//                 width: 576px
-//                 gap: 12px
-//                 p:nth-child(1)
-//                     font-style: normal
-//                     font-weight: 500
-//                     font-size: 24px
-//                     color: $black
-//                 p:nth-child(2)
-//                     font-style: normal
-//                     font-weight: 500
-//                     font-size: 18px
-//                     color: #333333
-//             .form
-//                 display: flex
-//                 justify-content: start
-//                 align-items: center
-//                 gap: 8px
-//                 p
-//                     padding: 16px 92px 16px 16px
-//                     border: 1px solid rgba(0, 0, 0, 0.2)
-//                     border-radius: 11px
-//                     font-style: normal
-//                     font-weight: 500
-//                     font-size: 18px
-//                     color: $black
-//                 button
-//                     display: flex
-//                     align-items: center
-//                     justify-content: center
-//                     padding: 14px 30px
-//                     color: $black
-//                     @extend %font18
-//                     gap: 12px
-//                     border: 2px solid #0C0C0C
-//                     border-radius: 11px
-//                     transition: all 0.2s ease
-//         .close
-//             display: flex
-//             height: 504px
-//             flex-direction: column
-//             align-items: start
-//             justify-content: flex-start
-//             cursor: pointer
+.pop-up
+    display: none
+    justify-content: center
+    align-items: center
+    width: 100vw
+    height: 100vh
+    background: rgba(0, 0, 0, 0.5)
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 100000
+    .content
+        display: flex
+        justify-content: center
+        align-items: center
+        background-color: #fff
+        opacity: 0
+        transition: opacity 0.4s ease
+        padding: 10px
+        border-radius: 15px
+        gap: 40px
+        .image,
+        .image-mob
+            background-image: url('https://res.cloudinary.com/dgn56mbcr/image/upload/v1672324857/%D1%82%D0%BE%D0%BA%D0%B5%D0%BD%20%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%20/img_ss03zt.png')
+            width: 238px
+            height: 484px
+        .image-mob
+            display: none
+        .request
+            display: flex
+            flex-direction: column
+            gap: 30px
+            .text
+                display: flex
+                flex-direction: column
+                width: 576px
+                gap: 12px
+                p:nth-child(1)
+                    font-style: normal
+                    font-weight: 500
+                    font-size: 24px
+                    color: $black
+                p:nth-child(2)
+                    font-style: normal
+                    font-weight: 500
+                    font-size: 18px
+                    color: #333333
+            .form
+                display: flex
+                justify-content: start
+                align-items: center
+                gap: 8px
+                p
+                    padding: 16px 92px 16px 16px
+                    border: 1px solid rgba(0, 0, 0, 0.2)
+                    border-radius: 11px
+                    font-style: normal
+                    font-weight: 500
+                    font-size: 18px
+                    color: $black
+                button
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    padding: 14px 30px
+                    color: $black
+                    @extend %font18
+                    gap: 12px
+                    border: 2px solid #0C0C0C
+                    border-radius: 11px
+                    transition: all 0.2s ease
+        .close
+            display: flex
+            height: 504px
+            flex-direction: column
+            align-items: start
+            justify-content: flex-start
+            cursor: pointer
 
 .pop-up.open
-    display: flex
+     display: flex
 
 .content.open
     opacity: 1
