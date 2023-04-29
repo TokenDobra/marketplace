@@ -23,7 +23,6 @@
     <!-- swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="{{main_js}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 </head>
 
@@ -32,6 +31,7 @@
     {% block content %}{% endblock %}
     {% include "../shared/footer.njk"%}
     {% include "../shared/popup.njk"%}
+    <script src="{{main_js}}"></script>
 </body>
 
 </html>

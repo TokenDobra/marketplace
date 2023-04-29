@@ -1,3 +1,11 @@
+        const swiper = new Swiper('.swiper', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+            spaceBetween: 16,
+        });
+
+
 // header mobile menu
 $('.open-mob-menu').click(function() {
     $(this).toggleClass('active');

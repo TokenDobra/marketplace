@@ -1,0 +1,17 @@
+{% set main_css = 'assets/css/artwork/main.css' %}
+{% set media_css = 'assets/css/artwork/media.css' %}
+{% set main_js = 'assets/js/artwork/script.js' %}
+
+
+{% extends "../layouts/marketplace.layout.njk" %}
+
+{% block content %}
+   {% include "./answers.njk"%}
+   {% include "./picture.njk"%}
+   {% include "./buy.njk"%}
+   {% include "./tell_about.njk"%}
+   {% include "./funds_pc.njk"%}
+   {% include "./funds.njk"%}
+
+
+{% endblock %}

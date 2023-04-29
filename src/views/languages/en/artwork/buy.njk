@@ -1,0 +1,94 @@
+    <div class="buy">
+        <div class="container">
+            <div class="left-side">
+                <p class="head">{{artwork.viewasset.name}}</p>
+                <div class="head-info">
+                    <div class="author">
+                        <p>Artist</p>
+                        <p>{{artwork.viewperson.fullname}}</p>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="fund-name">
+                        <p>Non-profit organization</p>
+                        <p>{{artwork.viewsubject.name}}</p>
+                    </div>
+                </div>
+                <div class="sold">
+                    <p><span>{{artwork.token.sold}}</span> / {{artwork.token.issue}} pre-NFT sold</p>
+                    <div class="progress-bar"><div class="bar" style="width: {{artwork.token.progress}}%;"></div></div>
+                </div>
+                <div class="right-side phone">
+                    <div class="question"></div>
+                    <div class="answer">By making a donation you get a digital copy of the artwork (pre-NFT) or its original
+
+                    </div>
+                    <div class="head">
+                        <p class="price">{{artwork.token.price}} $</p>
+                        <p class="how-many-left">{{artwork.token.rest}} items left.</p>
+                    </div>
+                    <div class="dropdown">
+                        <div class="select">
+                            <span class="selected mob">pre-NFT</span>
+                            <div class="caret"></div>
+                        </div>
+                        <ul class="menu">
+                            <li>Original</li>
+                        </ul>
+                    </div>
+                    <div class="quantity">
+                        <p><span id="nft-quantity-mob">1</span> pre-NFT</p>
+                        <div class="plus-minus">
+                            <button class="plus-mob">
+                                <img src="https://raw.githubusercontent.com/jamb17/token-dobra/e153865a99125d210949fc653431b3b3a3e491f8/%2B.svg"
+                                    alt="">
+                            </button>
+                            <a class="minus-mob">
+                                <div class="icon"></div>
+                            </a>
+                        </div>
+                    </div>
+                    <a id="buy-button" href="http://www.google.com/" class="btn-black">Donate</a>
+                    <div class="hyper-links">
+                        <P class="hyper-link one">What is pre-NFT?</P>
+                        <P class="hyper-link two">How to exchange pre-NFT for NFT?</P>
+                    </div>
+                </div>
+                <div class="divider"></div>
+            </div>
+            <div class="right-side">
+                <div class="question"></div>
+                <div class="answer">By making a donation on our website, you will receive pre-NFT. This is a voucher that reserves the NFT of the selected artwork for you. You don't need a Web3 wallet or cryptocurrency to make a donation. You can exchange the received pre-NFT for an NFT token at any time. This simplified NFT purchase option is suitable for everyone, especially for those who have not yet figured out Web3 technology.
+                </div>
+                <div class="head">
+                    <p class="price">{{artwork.token.price}} $</p>
+                    <p class="how-many-left">{{artwork.token.rest}} items left.</p>
+                </div>
+                <div class="dropdown">
+                    <div class="select">
+                        <span class="selected pc">pre-NFT</span>
+                        <div class="caret"></div>
+                    </div>
+                    <ul class="menu">
+                        <li>Original</li>
+                    </ul>
+                </div>
+                <div class="quantity">
+                    <p><span id="nft-quantity">1</span> pre-NFT</p>
+                    <div class="plus-minus">
+                        <button class="plus">
+                            <img src="https://raw.githubusercontent.com/jamb17/token-dobra/e153865a99125d210949fc653431b3b3a3e491f8/%2B.svg"
+                                alt="">
+                        </button>
+                        <a class="minus">
+                            <div class="icon"></div>
+                        </a>
+                    </div>
+                </div>
+                <a id="buy-button" class="btn-black">Donate</a>
+                <div class="hyper-links">
+                    <P class="hyper-link pc">What is pre-NFT?</P>
+                    <P class="hyper-link pc">How to exchange pre-NFT for NFT?</P>
+                </div>
+            </div>
+        </div>
+    </div>

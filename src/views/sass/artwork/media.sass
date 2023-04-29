@@ -118,38 +118,41 @@
             margin: 0 16px
             br
                 display: none
+    .pop-up
+        .content
+            flex-direction: column
+            padding: 0px
+            margin: 0 24px
+            .image,
+            .image-mob
+                width: 100%
+                height: 105px
+                justify-content: center
+                background-repeat: no-repeat
+                order: 2
+            .image  
+                display: none
+            .image-mob
+                display: flex
+            .request
+                order: 3
+                padding: 16px
+                .form
+                    flex-direction: column
+                    gap: 8px !important
+                    p
+                        width: 100%
+                    button
+                        width: 100%
+            .text
+                width: 100% !important
+            .close  
+                order: 1
+                height: 100%
+                align-items: flex-end
+                width: 100%
+                padding: 10px
 
-    // .pop-up
-    //     .content
-    //         flex-direction: column
-    //         padding: 0px
-    //         margin: 0 24px
-    //         .image
-    //             display: flex
-    //             background-image: url('https://res.cloudinary.com/dgn56mbcr/image/upload/v1672331582/%D1%82%D0%BE%D0%BA%D0%B5%D0%BD%20%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%20/img_oyydyb.png')
-    //             width: 100%
-    //             height: 105px
-    //             background-position: center
-    //             background-repeat: no-repeat
-    //             order: 2
-    //         .request
-    //             order: 3
-    //             padding: 16px
-    //             .form
-    //                 flex-direction: column
-    //                 gap: 8px !important
-    //                 p
-    //                     width: 100%
-    //                 button
-    //                     width: 100%
-    //         .text
-    //             width: 100% !important
-    //         .close  
-    //             order: 1
-    //             height: 100%
-    //             align-items: flex-end
-    //             width: 100%
-    //             padding: 10px
 
     .responsive-buy-nft
         .container
@@ -246,27 +249,27 @@
         .content
             gap: 8px
 
-    // .pop-up
-    //     .content
-    //         width: 100%
-    //         margin: 0 16px
-    //         gap: 0
-    //         .request
-    //             gap: 16px
-    //             .text
-    //                 gap: 8px
-    //                 p:nth-child(1)
-    //                     font-size: 20px
-    //                 p:nth-child(2)
-    //                     font-size: 14px
-    //             .form
-    //                 p
-    //                     font-size: 14px
-    //                     padding: 14px !important
-    //                 button
-    //                     font-size: 16px
-    //                     padding: 14px 0 !important
-    
+    .pop-up
+        .content
+            width: 100%
+            margin: 0 16px
+            gap: 0
+            .request
+                gap: 16px
+                .text
+                    gap: 8px
+                    p:nth-child(1)
+                        font-size: 20px
+                    p:nth-child(2)
+                        font-size: 14px
+                .form
+                    p
+                        font-size: 14px
+                        padding: 14px !important
+                    button
+                        font-size: 16px
+                        padding: 14px 0 !important
+
     .responsive-buy-nft
         .container
             img
