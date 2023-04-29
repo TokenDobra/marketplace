@@ -12,6 +12,12 @@ export class AppController {
     const mainMarketData: any = await this.marketService.getMainPage();
     return res.render(`./views/languages/en/main/main.njk`, { gallery:mainMarketData.gallery,  organizations:mainMarketData.subjects_gallery});
   }
+  @Get(`termsofservivce`)
+  public async getTerms(@Res() res: Response): Promise<void> {
+
+    return res.render(`./views/languages/en/termsofservivce/main.njk`);
+  }
+
 
   @Get(`artwork`)
   public async getNFTPage(@Req() request: Request, @Res() res: Response): Promise<void> {
@@ -32,6 +38,7 @@ export class AppController {
 
   @Get(`:organization`)
   public async getOrganization(@Param(`organization`) organization: string, @Res() res: Response): Promise<void> {
+
     const uuidOrganization = this.getUUIDByName(organization);
     if(uuidOrganization == undefined)
     {
