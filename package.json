@@ -9,13 +9,9 @@
     "css-main-minify": "css-minify -d public/assets/css/main -o public/assets/css/main/min",
     "css-main-once": "node_modules/node-sass/bin/node-sass src/views/sass/main/ -o public/assets/css/main/ && npm run css-main-minify",
     "css-main-watch": "npm run css-main-once && node_modules/node-sass/bin/node-sass -w src/views/sass/main/ -o public/assets/css/main/ --watch",
-
-
     "css-minify": "npm run css-minify",
     "css-once": "npm run css-main-once",
     "css-watch": "npm run css-main-watch",
-
-
     "build": "nest build && npm run css-once",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "npm run css-watch && nest start",
@@ -30,6 +26,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@nest-middlewares/serve-favicon": "^7.0.1",
+    "@nestjs/axios": "^2.0.0",
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",

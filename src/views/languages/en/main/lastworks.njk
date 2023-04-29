@@ -1,0 +1,44 @@
+    <div class="last-works">
+        <div class="container">
+            <p class="head">Random artworks</p>
+            <div class="responsive-works">
+
+                <div class="works">
+                {% for item in gallery %}
+                    <div onclick="location.href='/nft-page?uuid={{item.offer}}'" class="item-nft">
+                        <div class="bg"></div>
+                        <img src="{{item.image_link}}"
+                            alt="">
+                        <div class="tips">
+                            <span class="tool"
+                                data-tool="By making a donation on our website, you will receive pre-NFT. This is a voucher that reserves the NFT of the selected artwork for you">
+                                <p class="tip">pre-NFT</p>
+                            </span>
+                            <span class="tool"
+                                data-tool="This artwork can be purchased in original">
+                                <p class="tip">Original</p>
+                            </span>
+                        </div>
+                        <div class="info">
+                            <p class="name">{{item.viewasset.name}}</p>
+                            <div class="stats">
+                                <p class="price">{{item.token.price}} $</p>
+                                <span
+                                    data-tool="This artwork is digitized in the amount of {{item.token.issue}} tokens"
+                                    class="tool">
+                                    <p class="count tip2"><span class="nft-quantity">{{item.token.sold}}</span> / {{item.token.issue}}</p>
+                                </span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="bar" style="width: {{item.token.progress}}%;"></div>
+                            </div>
+                            <p class="tip">{{item.viewperson.fullname}}</p>
+                        </div>
+                    </div>
+
+{% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>

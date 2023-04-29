@@ -1,15 +1,15 @@
 import { Controller, Get, Res } from '@nestjs/common';
 import { Response } from 'express';
-import { AppService } from './app.service';
+import { MarketService } from './market/market.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly marketService: MarketService) {}
 
   @Get()
-  public getHello(@Res() res: Response): void {
-    const headline: string = this.appService.getHello();
+  public async getMain(@Res() res: Response): Promise<void> {
 
-    return res.render('./views/languages/ru/main/main.njk', { headline });
+    const mainMarketData: any = await this.marketService.getMainPage();
+    return res.render(`./views/languages/en/main/main.njk`, { gallery:mainMarketData.gallery,  organizations:mainMarketData.subjects_gallery});
   }
 }

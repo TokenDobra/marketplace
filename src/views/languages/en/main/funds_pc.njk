@@ -1,0 +1,65 @@
+    <div class="funds pc">
+        <div class="container">
+            <p class="title">Non-profit organizations</p>
+      {% for organization in organizations %}
+
+            <div class="fund">
+                <div class="content">
+                    <div onclick="location.href='/{{organization.view.page_link}}'" class="description">
+                        <img src="{{organization.view.Lable.link}}"
+                            alt="" class="logo">
+                        <div class="head">
+                            <p>{{organization.view.name}}</p>
+                            <p>{{organization.count_creations}} artworks | {{organization.count_tokens}} NFT</p>
+                        </div>
+                        <div class="story">
+                            <p class="story">{{organization.view.short_description | safe }}&nbsp;&nbsp;<a href="{{organization.view.page_link}}">Learn more</a></p>
+                        </div>
+                    </div>
+                    <div class="nft-slider">
+                        <div class="wrapper">
+                    {% for item in organization.offers.slice(0,3) %}
+
+                            <div onclick="location.href='/nft-page?uuid={{item.offer}}'" class="item-nft">
+                                <div class="bg"></div>
+                                <img src="{{item.image_link}}"
+                                    alt="">
+                                <div class="tips">
+                                    <span class="tool tip"
+                                        data-tool="By making a donation on our website, you will receive pre-NFT. This is a voucher that reserves the NFT of the selected artwork for you">
+                                        <p>pre-NFT</p>
+                                    </span>
+                                    <span class="tool tip"
+                                        data-tool="This artwork can be purchased in original">
+                                        <p>Original</p>
+                                    </span>
+                                </div>
+                                <div class="bottom">
+                                    <p class="name">{{item.viewasset.name}}</p>
+                                    <div class="info">
+                                        <div class="stats">
+                                            <p class="price">{{item.token.price}} $</p>
+                                            <p class="tip">{{item.viewperson.fullname}}</p>
+                                        </div>
+
+                                        <div class="progress-bar">
+                                           <div class="bar" style="width: {{item.token.progress}}%;"></div>
+                                        </div>
+                                        <span
+                                            data-tool="This artwork is digitized in the amount of {{item.token.issue}} tokens"
+                                            class="tool">
+                                            <p class="count tip2"><span>{{item.token.sold}}</span> / {{item.token.issue}}</p>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                    {% endfor %}
+
+                         </div>
+                    </div>
+                </div>
+            </div>
+           {% endfor %}
+        </div>
+    </div>
