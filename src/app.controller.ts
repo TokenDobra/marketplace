@@ -17,6 +17,12 @@ export class AppController {
 
     return res.render(`./views/languages/en/termsofservivce/main.njk`);
   }
+  @Get(`privacy`)
+  public async getTerms(@Res() res: Response): Promise<void> {
+
+    return res.render(`./views/languages/en/privacy/main.njk`);
+  }
+
 
 
   @Get(`artwork`)
