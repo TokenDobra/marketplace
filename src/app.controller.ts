@@ -22,6 +22,11 @@ export class AppController {
 
     return res.render(`./views/languages/en/privacy/main.njk`);
   }
+  @Get(`about`)
+  public async getAbout(@Res() res: Response): Promise<void> {
+
+    return res.render(`./views/languages/en/about/main.njk`);
+  }
 
 
 

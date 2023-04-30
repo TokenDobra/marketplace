@@ -88,3 +88,32 @@ $('.team-member:nth-child(3)').click(function () {
     $(this).toggleClass('active');
 });
 
+$('#open').click(function() {
+    $('.pop-up').addClass('open');
+    setTimeout(function() {
+        $('.content').addClass('open');
+    }, 100);
+});
+
+// open pop up
+$('header .btn-white').click(function() {
+    $('.pop-up').addClass('open');
+    setTimeout(function() {
+        $('.content').addClass('open');
+    }, 100);
+});
+
+// close pop up
+$('.close-popup').click(function() {
+    $('.content').removeClass('open');
+    setTimeout(function() {
+        $('.pop-up').removeClass('open');
+    }, 100);
+});
+
+// copy link from pop up
+$('.copy').click(function() {
+    var form_text = $('.form_text');
+    this.style.border = "2px solid #C5EC00";
+    navigator.clipboard.writeText(form_text.text());
+})
