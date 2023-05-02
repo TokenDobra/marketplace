@@ -32,11 +32,11 @@ export class AppController {
     const {offer, offer_pos} = request.query;
     const artworkMarketData: any = await this.marketService.getArtworkPage(offer);
     let position = artworkMarketData.offer.token;
-    let typeArtwork = "pre-NFT";
+    let typeArtwork = "Pre-NFT";
     if(artworkMarketData.offer.original.source == offer_pos)
     {
       position = artworkMarketData.offer.original;
-      typeArtwork = "original";
+      typeArtwork = "Original";
     }
     return res.render(`./views/languages/en/order/main.njk`, { artwork:artworkMarketData.offer,  position:position, typeArtwork});
 
