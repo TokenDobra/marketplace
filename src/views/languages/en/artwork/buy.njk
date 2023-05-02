@@ -18,6 +18,12 @@
                     <div class="progress-bar"><div class="bar" style="width: {{artwork.token.progress}}%;"></div></div>
                 </div>
                 <div class="right-side phone">
+                    <div class="head-info">
+                       <div class="artwork-type">
+                         Artwork token
+                       </div>
+                    </div>
+
                     <div class="question"></div>
                     <div class="answer">By making a donation you get a digital copy of the artwork (pre-NFT) or its original
 
@@ -26,6 +32,7 @@
                         <p class="price">{{artwork.token.price}} $</p>
                         <p class="how-many-left">{{artwork.token.rest}} items left.</p>
                     </div>
+<!--
                     <div class="dropdown">
                         <div class="select">
                             <span class="selected mob">pre-NFT</span>
@@ -35,6 +42,7 @@
                             <li>Original</li>
                         </ul>
                     </div>
+-->
                     <div class="quantity">
                         <p><span id="nft-quantity-mob">1</span> pre-NFT</p>
                         <div class="plus-minus">
@@ -47,7 +55,19 @@
                             </a>
                         </div>
                     </div>
-                    <a id="buy-button" href="http://www.google.com/" class="btn-black">Donate</a>
+
+                    <a id="buy-button" href="order?offer={{artwork.offer}}&offer_pos={{artwork.token.source}}" class="btn-black">Donate</a>
+
+                    <div class="head-info">
+                      <div class="artwork-type">
+                        Artwork original
+                      </div>
+                    </div>
+                    <div class="head">
+                        <p class="price">{{artwork.original.price}} $</p>
+                    </div>
+                    <a id="buy-button" href="order?offer={{artwork.offer}}&offer_pos={{artwork.original.source}}" class="btn-black">Buy original</a>
+
                     <div class="hyper-links">
                         <P class="hyper-link one">What is pre-NFT?</P>
                         <P class="hyper-link two">How to exchange pre-NFT for NFT?</P>
@@ -56,6 +76,12 @@
                 <div class="divider"></div>
             </div>
             <div class="right-side">
+                <div class="head-info">
+                  <div class="artwork-type">
+                    Artwork token
+                  </div>
+                </div>
+
                 <div class="question"></div>
                 <div class="answer">By making a donation on our website, you will receive pre-NFT. This is a voucher that reserves the NFT of the selected artwork for you. You don't need a Web3 wallet or cryptocurrency to make a donation. You can exchange the received pre-NFT for an NFT token at any time. This simplified NFT purchase option is suitable for everyone, especially for those who have not yet figured out Web3 technology.
                 </div>
@@ -63,6 +89,7 @@
                     <p class="price">{{artwork.token.price}} $</p>
                     <p class="how-many-left">{{artwork.token.rest}} items left.</p>
                 </div>
+<!--
                 <div class="dropdown">
                     <div class="select">
                         <span class="selected pc">pre-NFT</span>
@@ -72,6 +99,7 @@
                         <li>Original</li>
                     </ul>
                 </div>
+-->
                 <div class="quantity">
                     <p><span id="nft-quantity">1</span> pre-NFT</p>
                     <div class="plus-minus">
@@ -84,7 +112,23 @@
                         </a>
                     </div>
                 </div>
-                <a id="buy-button" class="btn-black">Donate</a>
+                <a id="buy-button" href="order?offer={{artwork.offer}}&offer_pos={{artwork.token.source}}" class="btn-black">Donate</a>
+                <div class="head-info">
+                  <div class="artwork-type">
+                    Artwork original
+                  </div>
+                </div>
+
+                <div class="head">
+                   <p class="price">{{artwork.original.price}} $</p>
+                </div>
+                <a id="buy-button" href="order?offer={{artwork.offer}}&offer_pos={{artwork.original.source}}" class="btn-black">Buy original</a>
+
+                <div class="hyper-links">
+                   <P class="hyper-link one">What is pre-NFT?</P>
+                   <P class="hyper-link two">How to exchange pre-NFT for NFT?</P>
+                </div>
+
                 <div class="hyper-links">
                     <P class="hyper-link pc">What is pre-NFT?</P>
                     <P class="hyper-link pc">How to exchange pre-NFT for NFT?</P>

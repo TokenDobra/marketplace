@@ -1,0 +1,31 @@
+<div class="order">
+  <div class="container">
+     <div class="title">Order</div>
+     <div class="order-item">
+        <div class="order-item-image">
+           <img class="order-image" src="{{artwork.image_link}}">
+        </div>
+        <div class="order-item-name">
+           <ul>
+              <li>
+                 Author: <span class="order-item-value">{{artwork.viewperson.fullname}}</span>
+              </li>
+              <li>
+                 Artwork: <span class="order-item-value">{{artwork.viewasset.name}}</span>
+              </li>
+              <li>
+                 {{typeArtwork}}
+              </li>
+              <li>
+                 Price: <span class="order-item-value">{{position.price}}&nbsp;$</span>
+              </li>
+              <li>
+                 Quantity: <span class="order-item-value">1</span>
+              </li>
+           </ul>
+        </div>
+        <div class="order-description-name">{{position.price}} $</div>
+     </div>
+
+  </div>
+</div>

@@ -42,6 +42,17 @@ $('#open').click(function() {
         $('.content').addClass('open');
     }, 100);
 });
+/*
+// open pop up
+$('.btn-black').click(function() {
+    $('.order-pop-up').addClass('open');
+    setTimeout(function() {
+        $('.order-pop-up>.content').addClass('open');
+    }, 100);
+});
+
+*/
+
 
 
 // open pop up
@@ -73,7 +84,16 @@ $('.close-popup').click(function() {
         $('.pop-up').removeClass('open');
     }, 100);
 });
+/*
+// close pop up
+$('.order-close-popup').click(function() {
+    $('.order-pop-up>.content').removeClass('open');
+    setTimeout(function() {
+        $('.order-pop-up').removeClass('open');
+    }, 100);
+});
 
+*/
 $('.mobile-popup.first .link').click(function(){
     $('.mobile-popup.first .content').removeClass('open');
     $('.mobile-popup.first').removeClass('open');
@@ -170,7 +190,7 @@ dropdowns.forEach(dropdown => {
             select.classList.remove('open');
             caret.classList.remove('rotate');
             menu.classList.remove('open');
-            $('.buy .btn-black').attr("href", "#order:NFT =" + parseInt(price.text()));
+//            $('.buy .btn-black').attr("href", "#order:NFT =" + parseInt(price.text()));
             options.forEach(option => {
                 option.classList.remove('open');
             });
@@ -198,7 +218,7 @@ $('.plus').click(function() {
             price.text(y + ' ₽');
         }
     }
-    $('.buy .btn-black').attr("href", "#order:NFT =" + parseInt(price.text()));
+//    $('.buy .btn-black').attr("href", "#order:NFT =" + parseInt(price.text()));
 });
 
 $('.minus').click(function() {
@@ -220,7 +240,7 @@ $('.minus').click(function() {
             price.text(y + ' ₽');
         }
     }   
-    $('.buy .btn-black').attr("href", "#order:NFT =" + parseInt(price.text()));
+//    $('.buy .btn-black').attr("href", "#order:NFT =" + parseInt(price.text()));
 }); 
 
 $('.plus-mob').click(function() {
@@ -242,7 +262,7 @@ $('.plus-mob').click(function() {
             price.text(y + ' ₽');
         }
     }
-    $('.buy .btn-black').attr("href", "#order:NFT =" + parseInt(price.text()));
+//    $('.buy .btn-black').attr("href", "#order:NFT =" + parseInt(price.text()));
 });
 
 $('.minus-mob').click(function() {
@@ -264,7 +284,7 @@ $('.minus-mob').click(function() {
             price.text(y + ' ₽');
         }
     }  
-    $('.buy .btn-black').attr("href", "#order:NFT =" + parseInt(price.text()));
+//    $('.buy .btn-black').attr("href", "#order:NFT =" + parseInt(price.text()));
 }); 
 
 $('.question').hover(function () {

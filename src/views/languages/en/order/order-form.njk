@@ -1,0 +1,32 @@
+<div class="order-form">
+  <div class="container">
+    <form name="myForm" action="/order_artwork" onsubmit="return validateForm()" method="post">
+       <ul class="flex-outer">
+          <li>
+            <label for="fullname">Full Name</label>
+             <input type="text" name="fullname" placeholder="Enter your full name">
+          </li>
+          <li>
+            <label for="phone">Phone</label>
+            <input type="text" name="phone" placeholder="Enter your phone number">
+          </li>
+          <li>
+            <label for="email">Email</label>
+             <input type="text" name="email" placeholder="Enter your email">
+          </li>
+          <li>
+            <input type="checkbox" name="agree placeholder="Enter your email">&nbsp;&nbsp;&nbsp;
+            <label for="agree">I agree with the <a href='/termsofservivce' target='_blank'>User Agreement</a> and the <a href='/privacy' target='_blank'>Personal Data Processing Policy</a></label>
+          </li>
+
+
+
+          <li>
+            <input type="hidden" name="source" value="{{position.source}}">
+            <input type="hidden" name="quantity" value="1">
+            <button class='order-button'>Pay</button>
+          </li>
+        </ul>
+     </form>
+   </div>
+</div>

@@ -27,6 +27,20 @@ export class AppController {
 
     return res.render(`./views/languages/en/about/main.njk`);
   }
+  @Get(`order`)
+  public async getOrder(@Req() request: Request, @Res() res: Response): Promise<void> {
+    const {offer, offer_pos} = request.query;
+    const artworkMarketData: any = await this.marketService.getArtworkPage(offer);
+    let position = artworkMarketData.offer.token;
+    let typeArtwork = "token";
+    if(artworkMarketData.offer.original.source == offer_pos)
+    {
+      position = artworkMarketData.offer.original;
+      typeArtwork = "original";
+    }
+    return res.render(`./views/languages/en/order/main.njk`, { artwork:artworkMarketData.offer,  position:position, typeArtwork});
+
+  }
 
 
 

@@ -84,6 +84,103 @@ header.fixed
 .italic
     font-style: italic
     font-weight: 700
+.order
+    @extend %display
+    margin-top: 67px
+    margin-left: 30px
+    padding-bottom: 10px
+    width: 100%
+    .container
+        flex-direction: column
+        border-radius: 1px
+        padding: 40px 10px
+        margin-bottom: 10px
+    .title
+        font-style: normal
+        font-weight: 700
+        font-size: 24px
+        margin-bottom: 40px
+    .order-item
+        display: flex
+        flex-wrap: wrap
+        .order-item-image
+            flex-direction: column
+            min-width: 300px
+            img
+                width: 200px
+        .order-item-name
+            min-width: 400px
+            flex-direction: column
+            font-style: normal
+            font-weight: 700
+            font-size: 16px
+            ul
+                list-style-type: none
+                .order-item-value
+                    font-weight: 400
+        .order-description-name
+            min-width: 400px
+            flex-direction: column
+            font-style: normal
+            font-weight: 700
+            font-size: 56px
+
+
+//        gap: 10px
+
+.order-form
+    @extend %display
+    margin-left: 30px
+    padding-bottom: 40px
+    width: 100%
+    .container
+        flex-direction: column
+        border-radius: 20px
+        padding: 20px 60px
+        margin-bottom: 40px
+        gap: 90px
+        ul
+            list-style-type: none
+        .flex-outer li,
+        .flex-inner 
+            display: flex;
+            flex-wrap: wrap
+            align-items: center
+            list-style-type: none
+            margin-bottom: 20px
+            .order-button
+                @extend %display
+                @extend %font18
+                color: white
+                border-radius: 13px
+                background: $black
+                padding: 22px 60px
+                transition: all 0.2s ease-in-out
+        .flex-outer > li > label,
+        .flex-outer li p 
+            flex: 1 0 120px
+            max-width: 420px
+            font-style: normal
+            font-weight: 700
+            font-size: 16px
+            line-height: 24px
+        .flex-outer > li > label + *,
+        .flex-inner
+            flex: 1 0 420px
+            font-style: normal
+            font-weight: 700
+            font-size: 16px
+            line-height: 24px
+            color: rgba(0, 0, 0, 0.8)
+        input
+             cursor: text
+             padding: 10px
+             height: 50px
+             margin: 0 auto
+             border: 1px solid black
+             border-radius: 10px
+//             background-color: $black
+//             min-width: 200px
 
 .terms
     @extend %display
