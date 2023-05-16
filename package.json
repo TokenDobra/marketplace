@@ -16,7 +16,6 @@
     "css-organization-watch": "npm run css-organization-once && node_modules/node-sass/bin/node-sass -w src/views/sass/organization/ -o public/assets/css/organization/ --watch",
     "css-about-once": "node_modules/node-sass/bin/node-sass src/views/sass/about/ -o public/assets/css/about/",
     "css-about-watch": "npm run css-about-once && node_modules/node-sass/bin/node-sass -w src/views/sass/about/ -o public/assets/css/about/ --watch",
-
     "js-copy": "copyfiles -u 2 \"src/views/js/**\" \"public/assets\"",
     "css-minify": "npm run css-main-minify && npm run css-artwork-minify",
     "css-once": "npm run css-main-once && npm run css-artwork-once && npm run css-organization-once && npm run css-about-once",
@@ -38,12 +37,14 @@
     "@nest-middlewares/serve-favicon": "^7.0.1",
     "@nestjs/axios": "^2.0.0",
     "@nestjs/common": "^9.0.0",
+    "@nestjs/config": "^2.3.1",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/serve-static": "^3.0.1",
     "nunjucks": "^3.2.4",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "stripe": "^12.4.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",

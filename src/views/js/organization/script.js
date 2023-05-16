@@ -66,7 +66,7 @@ $('.item-nft').hover(function() {
 $(document).ready(function() {
     document.querySelector('.form_text').textContent = window.location.href;
 });
-
+/*
 $(document).ready(function() {
     $('.item-nft').each(function(){
         var span = $(this).find('.count span').html();
@@ -75,3 +75,4 @@ $(document).ready(function() {
         bar.css({width: Number(span) * 0.1 + '%'})
     })
 })
+*/

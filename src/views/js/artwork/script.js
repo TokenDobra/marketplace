@@ -5,6 +5,40 @@
             spaceBetween: 16,
         });
 
+$('.buy-token-button').click(function(){
+  $('#order_form').submit();
+
+})
+$('.buy-original-button').click(function(){
+  $('input[name="quantity"]').val(1);
+  $('input[name="source"]').val($('input[name="original_source"]').val());
+  $('input[name="price"]').val($('input[name="original_price"]').val());
+  $('#order_form').submit();
+})
+
+$('.plus').click(function(){
+  let quantity = $('input[name="quantity"]').val();
+  let rest = $('input[name="token_rest"]').val();
+  if(rest == quantity)
+    return;
+  quantity++;
+  $('input[name="quantity"]').val(quantity);
+  $('#nft-quantity').text(quantity);
+//  alert(quantity);
+
+});
+$('.minus').click(function(){
+  let quantity = $('input[name="quantity"]').val();
+  if(quantity == 1)
+    return;
+  quantity--;
+  $('input[name="quantity"]').val(quantity);
+  $('#nft-quantity').text(quantity);
+});
+
+
+
+
 // header mobile menu
 $('.open-mob-menu').click(function() {
     $(this).toggleClass('active');
@@ -84,6 +118,8 @@ $('.close-popup').click(function() {
         $('.pop-up').removeClass('open');
     }, 100);
 });
+
+
 /*
 // close pop up
 $('.order-close-popup').click(function() {
@@ -144,7 +180,7 @@ $('.funds.pc .item-nft').hover(function() {
 
 
 // dropdown
-
+/*
 const dropdowns = document.querySelectorAll('.dropdown');
 var price = $('.price');
 
@@ -303,4 +339,4 @@ $(document).ready(function() {
         bar.css({width: Number(span) * 0.1 + '%'})
     })
 })
-
+*/

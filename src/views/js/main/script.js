@@ -69,6 +69,14 @@ $('.funds.pc .item-nft').hover(function() {
     name.children('.name').toggleClass('hover');
     bg.toggleClass('active');
 });
+$('#open').click(function() {
+    $('.pop-up').addClass('open');
+    setTimeout(function() {
+        $('.content').addClass('open');
+    }, 100);
+});
+
+/*
 
 $(document).ready(function() {
     $('.item-nft').each(function(){
@@ -77,3 +85,4 @@ $(document).ready(function() {
         bar.css({width: Number(span) * 0.1 + '%'})
     })
 })
+*/
