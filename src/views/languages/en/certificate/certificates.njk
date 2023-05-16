@@ -28,15 +28,19 @@
              </p>
 
           </div>
-          <div class="certificate-item-description">
-             <p>
+          {% if item.isOriginal %}
+             <div class="certificate-item-description">
+             </div>
+          {% else %}
+             <div class="certificate-item-description">
+               <p>
                 <span class="certificate-item-description-title">pre-NFT number:</span>
-             </p>
-             <p>
+              </p>
+              <p>
                 <span class="certificate-item-description-title">{{item.certificate}}</span>
-             </p>
-                 
-          </div>
+              </p>
+             </div>
+          {% endif %}
        </div>
     {% endfor %}
 
