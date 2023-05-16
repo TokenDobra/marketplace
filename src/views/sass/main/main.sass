@@ -662,3 +662,414 @@ header.fixed
             font-weight: 700
             font-size: 18px
             line-height: 27px
+.picture
+    width: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    background-color: #F4F4F4
+    padding: 151px 0 60px 0
+    img
+        width: 100%
+        max-width: 564px
+        padding: 0 33px
+
+.pre-nft-popup
+    display: none
+    justify-content: center
+    align-items: center
+    width: 100vw
+    height: 100vh
+    position: fixed
+    top: 0
+    left: 0
+    background: rgba(0, 0, 0, 0.5)
+    z-index: 10000
+    .content
+        display: flex
+        flex-direction: column
+        background-color: #fff
+        max-width: 904px
+        border-radius: 15px
+        padding: 60px 40px
+        gap: 30px
+        position: relative
+        opacity: 0
+        pointer-events: none
+        transition: opacity 0.3s ease-in-out 
+    .content.open
+        opacity: 1
+        pointer-events: all
+        .head
+            font-style: normal
+            font-weight: 500
+            font-size: 24px
+            line-height: 36px
+            color: $black
+            margin-bottom: 4px
+        .divider
+            width: 100%
+            height: 1px
+            background: rgba(0, 0, 0, 0.1)
+            margin-bottom: 12px
+        .info
+            font-style: normal
+            font-weight: 500
+            font-size: 18px
+            line-height: 27px
+            color: #333333
+        li
+            line-height: 27px
+            list-style-position: inside    
+            margin-left: 15px
+        span, a
+            color: $black
+            font-weight: 700
+            font-style: italic
+        a
+            text-decoration: underline !important
+        .close-popup
+            width: 30px
+            height: 30px
+            background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.75 8.75L21.25 21.25M8.75 21.25L21.25 8.75' stroke='%230C0C0C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+            position: absolute
+            top: 10px
+            right: 10px
+            cursor: pointer
+.pre-nft-popup.open
+    display: flex
+
+.mobile-popup
+    top: 0
+    bottom: 0
+    display: none
+    justify-content: center
+    align-items: center
+    background: rgba(0, 0, 0, 0.5)
+    position: fixed
+    z-index: 10000
+    .content
+        width: 100%
+        padding: 128px 13px
+        margin: 32px 16px
+        background: white
+        position: relative
+        border-radius: 15px
+        height: 90vh
+        display: flex
+        opacity: 1
+        align-items: center
+        transition: opacity 0.3s ease-in-out
+        .link
+            font-weight: 500
+            font-size: 12px
+            line-height: 18px
+            color: rgba(0, 0, 0, 0.5)
+            position: absolute
+            top: 16px
+            line-height: 18px
+        .head
+            font-style: normal
+            font-weight: 500
+            font-size: 24px
+            line-height: 36px
+            color: $black
+            margin-bottom: 4px
+        .divider
+            width: 100%
+            height: 1px
+            background: rgba(0, 0, 0, 0.1)
+            margin-bottom: 12px
+        .info
+            font-style: normal
+            font-weight: 500
+            font-size: 18px
+            line-height: 27px
+            color: #333333
+        li
+            line-height: 27px
+            list-style-position: inside    
+            margin-left: 15px
+        span, a
+            color: $black
+            font-weight: 700
+            font-style: italic
+        a
+            text-decoration: underline !important
+        .close-popup
+            width: 30px
+            height: 30px
+            background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.75 8.75L21.25 21.25M8.75 21.25L21.25 8.75' stroke='%230C0C0C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+            position: absolute
+            top: 10px
+            right: 10px
+            cursor: pointer
+    .content.open
+        opacity: 1
+        pointer-events: all
+.mobile-popup.open
+    display: flex
+.buy
+    width: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    padding-top: 60px
+    .container
+        align-items: start
+        gap: 86px
+        .left-side
+            display: flex
+            width: 100%
+            flex-direction: column
+            gap: 40px
+            .head
+                font-weight: 500
+                font-size: 55px
+                line-height: 105.9%
+                color: $black
+            .head-info
+                display: flex
+                gap: 30px
+                .divider
+                    width: 2px
+                    background-color: rgba(0, 0, 0, 0.06)
+                .author,
+                .fund-name
+                    display: flex
+                    flex-direction: column
+                    gap: 12px
+                    p:nth-child(1)
+                        font-style: normal
+                        font-weight: 700
+                        font-size: 16px
+                        line-height: 24px
+                        color: rgba(0, 0, 0, 0.5)
+                    p:nth-child(2)
+                        font-weight: 700
+                        font-size: 16px
+                        line-height: 24px
+                        color: $black
+                        background: #FFFFFF
+                        box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.07)
+                        border-radius: 13px
+                        padding: 8px 12px
+            .sold
+                display: flex
+                flex-direction: column
+                gap: 13px
+                p
+                    font-weight: 700
+                    font-size: 16px
+                    line-height: 24px
+                .progress-bar
+                    width: 100%
+                    height: 12px
+                    display: flex
+                    background: transparent
+                    border: $black solid 2px
+                    border-radius: 8px
+                    .bar
+                        width: 1%
+                        height: 100%
+                        background-color: $black
+                        transition: width 0.7s ease
+            .info
+                font-weight: 500
+                font-size: 18px
+                line-height: 27px
+                color: $black
+                display: flex
+                flex-direction: column
+                gap: 8px
+                max-width: 700px
+                ul
+                    padding-left: 27px
+            .divider
+                width: 100%
+                border: 1px solid rgba(0, 0, 0, 0.13)
+            .links
+                display: flex
+                flex-direction: column
+                gap: 16px
+                .link
+                    display: flex
+                    align-items: center
+                    gap: 12px
+                    font-weight: 700
+                    font-size: 16px
+                    line-height: 24px
+                    color: #464646
+            .right-side.phone
+                position: relative
+                display: none
+        .right-side
+            display: flex
+            flex-direction: column
+            width: 100%
+            padding: 30px 44px 30px 30px
+            border: 1px solid rgba(0, 0, 0, 0.13)
+            border-radius: 15px
+            position: relative
+            .head-info
+                display: flex
+                gap: 30px
+                margin-bottom: 10px;
+                margin-top: 10px;
+                .divider
+                    width: 2px
+                    background-color: rgba(0, 0, 0, 0.06)
+                .artwork-type
+                    display: flex
+                    flex-direction: column
+                    gap: 20px
+                    font-weight: 700
+                    font-size: 16px
+                    color: rgba(0, 0, 0, 0.5)
+
+
+            .question
+                background-image: url("data:image/svg+xml,%3Csvg width='20' height='21' viewBox='0 0 20 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10.5' r='10' fill='%230C0C0C'/%3E%3Cpath d='M9.0994 11.8862C9.0994 11.403 9.20626 11.0034 9.42 10.6874C9.64303 10.3715 9.96364 10.023 10.3818 9.64197C10.6885 9.36318 10.9115 9.13085 11.0509 8.945C11.1996 8.74984 11.2739 8.53146 11.2739 8.28984C11.2739 7.94601 11.1345 7.67651 10.8558 7.48136C10.5863 7.27692 10.2238 7.17469 9.76849 7.17469C9.33172 7.17469 8.94142 7.26762 8.59758 7.45348C8.26303 7.63005 7.9796 7.88096 7.74727 8.20621L6.06061 7.21651C6.45091 6.62176 6.97596 6.16176 7.63576 5.83651C8.30485 5.51126 9.09475 5.34863 10.0055 5.34863C11.0741 5.34863 11.9291 5.57631 12.5703 6.03166C13.2208 6.48702 13.5461 7.11894 13.5461 7.92742C13.5461 8.30843 13.481 8.64298 13.3509 8.93106C13.2301 9.21914 13.0768 9.4654 12.8909 9.66985C12.7143 9.865 12.482 10.0927 12.1939 10.3529C11.8501 10.6595 11.5992 10.9197 11.4412 11.1335C11.2832 11.3379 11.2042 11.5888 11.2042 11.8862H9.0994ZM10.1588 15.385C9.77778 15.385 9.45717 15.2642 9.19697 15.0226C8.94606 14.7717 8.82061 14.4696 8.82061 14.1165C8.82061 13.7634 8.94606 13.4707 9.19697 13.2383C9.44788 12.9967 9.76849 12.8759 10.1588 12.8759C10.5491 12.8759 10.8697 12.9967 11.1206 13.2383C11.3715 13.4707 11.497 13.7634 11.497 14.1165C11.497 14.4696 11.3669 14.7717 11.1067 15.0226C10.8558 15.2642 10.5398 15.385 10.1588 15.385Z' fill='white'/%3E%3C/svg%3E")
+                width: 20px
+                height: 20px
+                background-color: $black
+                border-radius: 50px
+                position: absolute
+                right: 12px
+                top: 120px
+                cursor: pointer 
+            .answer
+                font-family: 'Montserrat'
+                font-style: normal
+                font-weight: 500
+                font-size: 12px
+                line-height: 18px
+                color: white 
+                background-color: $black
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.35)
+                padding: 10px
+                border-radius: 11px
+                text-align: center
+                position: absolute
+                top: 56px
+                right: 12px
+                max-width: 378px
+                opacity: 0
+                pointer-events: none
+                transition: opacity 0.3s ease-in-out
+            .answer.active
+                opacity: 1
+                pointer-events: all
+            .head
+                display: flex
+                justify-content: space-between
+                width: 100%
+                align-items: center
+                .price
+                    font-style: normal
+                    font-weight: 700
+                    font-size: 48px
+                    line-height: 105.9%
+                    color: black
+                .how-many-left
+                    font-weight: 500
+                    font-size: 16px
+                    line-height: 24px
+                    color: $black
+        .dropdown
+            position: relative
+            margin-top: 20px
+            margin-bottom: 8px
+            .select
+                border: 1px solid rgba(0, 0, 0, 0.13)
+                border-radius: 11px
+                font-weight: 500
+                font-size: 18px
+                line-height: 27px
+                color: $black
+                display: flex
+                padding: 14px 13px 14px 16px
+                align-items: center
+                justify-content: space-between
+                cursor: pointer
+                .caret
+                    width: 0
+                    height: 0
+                    border-left: 5px solid transparent
+                    border-right: 5px solid transparent
+                    border-top: 6px solid #000
+                .caret.rotate
+                    transform: rotate(180deg)
+            .menu
+                list-style: none
+                border: 1px solid rgba(0, 0, 0, 0.13)
+                border-radius: 11px
+                font-weight: 500
+                font-size: 18px
+                line-height: 27px
+                color: $black
+                display: flex
+                flex-direction: column
+                padding: 14px 13px 14px 16px
+                cursor: pointer
+                position: absolute
+                z-index: 1
+                background: #fff
+                width: 100%
+                opacity: 0
+                pointer-events: none
+                max-height: 0
+                transition: all 0.3s ease
+            .menu.open
+                opacity: 1
+                pointer-events: all
+                max-height: 130px
+                margin-top: 8px
+        .quantity
+            border: 1px solid rgba(0, 0, 0, 0.13)
+            border-radius: 11px
+            font-weight: 500
+            font-size: 18px
+            line-height: 27px
+            color: $black
+            display: flex
+            align-items: center
+            margin-bottom: 8px
+            justify-content: space-between
+            p
+                padding: 16px 0 16px 16px
+            .plus-minus
+                display: flex
+                flex-direction: column
+                .plus,
+                .plus-mob
+                    border-left: 1px solid rgba(0, 0, 0, 0.13)
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.13)
+                    padding: 10px 22px
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    cursor: pointer
+                    img
+                        width: 10px
+                .minus,
+                .minus-mob
+                    padding: 13px 22px
+                    border-left: 1px solid rgba(0, 0, 0, 0.13)
+                    .icon
+                        width: 10px
+                        height: 3px
+                        background: $black
+        .hyper-links
+            margin-top: 16px
+            display: flex
+            flex-direction: column
+            gap: 8px
+            cursor: pointer
+            .hyper-link
+                font-weight: 500
+                font-size: 16px
+                line-height: 24px
+                color: rgba(0, 0, 0, 0.5)
+            .hyper-link:hover
+                text-decoration: underline

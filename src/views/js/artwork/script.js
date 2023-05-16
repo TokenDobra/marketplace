@@ -54,12 +54,21 @@ $(window).on("scroll", function () {
     $("header").toggleClass("fixed", $(this).scrollTop() > 1);
 });
 
+$().ready(function(){
+//    alert($(window).width());
+    if($(window).width() < 770)
+    {
+      $('#funds_pc').hide();
+      $('#funds').show();
+    }
+
+});
 // tooltips
 $(document).ready(function () {
     let count = Number($('.item-nft:nth-child(2) .info .stats span').text());
     let width = count * 0.1;
     document.querySelector('.status').style.width = width + '%';
-    console.log(width);
+
 });
 
 // open pop up

@@ -105,6 +105,9 @@
         .container
             margin: 30px 16px
 
+    .picture
+        padding: 111px 0 40px 0
+
     .funds.pc
         .item-nft:nth-child(2)
             .tool:before
@@ -178,6 +181,12 @@
     .works
         grid-template-columns: repeat(2,1fr) !important
 
+    .pre-nft-popup
+        .content
+            padding: 16px
+            margin: 0 16px
+            br
+                display: none
     .pop-up
         .content
             flex-direction: column
@@ -281,6 +290,13 @@
            p
             text-align: center 
 
+    .buy
+        .container
+            flex-direction: column
+            .right-side.phone
+                display: flex !important
+            .right-side
+                display: none
 
 @media screen and (max-width: 480px)
 
@@ -292,6 +308,7 @@
         padding: 100px 16px
 
     .btn-black
+    .btn-red
         font-size: 0.9em
         padding: 14px 30px
         border-radius: 11px
@@ -323,6 +340,9 @@
         .item-nft
             height: 58vh !important
 
+    .pre-nft-popup
+        .content
+            gap: 8px
     .pop-up
         .content
             width: 100%
@@ -368,6 +388,9 @@
                         a
                             font-size: 14px
 
+    .picture
+        padding: 90px 0 40px 0
+
     .funds
         margin-bottom: 30px
         padding: 0
@@ -406,3 +429,27 @@
                 font-size: 16px 
             .btn-white
                 font-size: 16px
+    .buy
+        .container
+            .left-side
+                .right-side.phone
+                    padding: 16px !important
+                    .question
+                        right: -8px
+                        top: 78px
+                    .head
+                        .price
+                            font-size: 20px !important
+                        .how-many-left
+                            font-size: 14px !important
+                    .dropdown
+                        font-size: 14px !important
+                    .quantity
+                        font-size: 14px !important
+                    .hyper-link
+                        font-size: 14px !important
+                .info
+                    font-size: 14px !important
+                .links
+                    .link
+                        font-size: 14px
