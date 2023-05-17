@@ -10,6 +10,7 @@ $('.buy-token-button').click(function(){
 
 })
 $('.buy-original-button').click(function(){
+
   $('input[name="quantity"]').val(1);
   $('input[name="source"]').val($('input[name="original_source"]').val());
   $('input[name="price"]').val($('input[name="original_price"]').val());
@@ -35,6 +36,26 @@ $('.minus').click(function(){
   $('input[name="quantity"]').val(quantity);
   $('#nft-quantity').text(quantity);
 });
+$('.plus-mob').click(function(){
+  let quantity = $('input[name="quantity"]').val();
+  let rest = $('input[name="token_rest"]').val();
+  if(rest == quantity)
+    return;
+  quantity++;
+  $('input[name="quantity"]').val(quantity);
+  $('#nft-quantity-mob').text(quantity);
+//  alert(quantity);
+
+});
+$('.minus-mob').click(function(){
+  let quantity = $('input[name="quantity"]').val();
+  if(quantity == 1)
+    return;
+  quantity--;
+  $('input[name="quantity"]').val(quantity);
+  $('#nft-quantity-mob').text(quantity);
+});
+
 
 
 
@@ -186,6 +207,9 @@ $('.funds.pc .item-nft').hover(function() {
     tips.children('.tip').toggleClass('hover');
     name.children('.name').toggleClass('hover');
 });
+$('.question').hover(function () {
+    $('.answer').toggleClass('active'); 
+});
 
 
 // dropdown
@@ -332,9 +356,6 @@ $('.minus-mob').click(function() {
 //    $('.buy .btn-black').attr("href", "#order:NFT =" + parseInt(price.text()));
 }); 
 
-$('.question').hover(function () {
-    $('.answer').toggleClass('active'); 
-});
 
 $(document).ready(function() {
     var quantity = Number($('.sold p span').html()) * 0.1;
