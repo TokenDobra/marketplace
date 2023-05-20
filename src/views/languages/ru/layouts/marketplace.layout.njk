@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ Title }}</title>
+    <meta name="description" content="Популяризация благотворительности – одна из главных задач нашего проекта. Мы будем крайне признательны, если вы поддержите эту идею и расскажете о галерее в своих социальных сетях.">
+
+    <title>Токен добра</title>
+    <link rel="icon" type="image/x-icon" href="/td.ico">
+
     <link rel="stylesheet" href="{{ main_css  }}">
     <link rel="stylesheet" href="{{ media_css }}">
 
@@ -18,8 +22,8 @@
 
     <!-- swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="{{main_js}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 </head>
 
@@ -28,6 +32,8 @@
     {% block content %}{% endblock %}
     {% include "../shared/footer.njk"%}
     {% include "../shared/popup.njk"%}
+    <script src="{{main_js}}"></script>
+
 </body>
 
 </html>

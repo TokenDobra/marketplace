@@ -4,6 +4,7 @@ import { MarketService } from './market/market.service';
 import { OperationService, SourceItemDto,  CreateOrderDto} from './operation/operation.service';
 import {StripeService} from './stripe/stripe.service';
 import {CertificateService} from './certificate/certificate.service';
+import {TinkoffService} from './tinkoff/tinkoff.service';
 
 
 
@@ -23,50 +24,73 @@ export class OrderArtworkDto {
   email:string;
 }
 
-
+class HostSetting
+{
+  marketplace: string;
+  language: string;
+  constructor(marketplace: string, language: string)
+  {
+     this.marketplace = marketplace;
+     this.language = language;
+  }
+}
 @Controller()
 export class AppController {
   constructor(private readonly marketService: MarketService, 
               private readonly operationService: OperationService,
               private readonly stripeService: StripeService,
               private readonly certificateService: CertificateService,
-
-             ) {}
+              private readonly tinkoffService: TinkoffService,
+             ) {
+             }
+  getSetting(host: string): HostSetting
+  {
+     if(host == `joincharible.com`)
+       return new HostSetting(`joincharible`, `en`);
+     return new HostSetting(`tokendobra`, `ru`);
+  }
 
   @Get()
-  public async getMain(@Res() res: Response): Promise<void> {
+  public async getMain(@Req() request: Request, @Res() res: Response): Promise<void> {
+     const setting:HostSetting = this.getSetting(request.get('Host'));
 
-    const mainMarketData: any = await this.marketService.getMainPage();
-    return res.render(`./views/languages/en/main/main.njk`, { gallery:mainMarketData.gallery,  organizations:mainMarketData.subjects_gallery});
+    const mainMarketData: any = await this.marketService.getMainPage(setting.marketplace);
+    return res.render(`./views/languages/${setting.language}/main/main.njk`, { gallery:mainMarketData.gallery,  organizations:mainMarketData.subjects_gallery});
   }
   @Get('certificate')
   public async getCertificate(@Req() request: Request, @Res() res: Response): Promise<void> {
+    const setting:HostSetting = this.getSetting(request.get('Host'));
     const {uuid} = request.query;
-    const certificateData: any = await this.certificateService.getPaid(uuid);
-    return res.render(`./views/languages/en/certificate/main.njk`, { paid: uuid, holder:certificateData.holder,  certificates:certificateData.certificates});
+    const certificateData: any = await this.certificateService.getPaid(setting.marketplace, uuid);
+    return res.render(`./views/languages/${setting.language}/certificate/main.njk`, { paid: uuid, holder:certificateData.holder,  certificates:certificateData.certificates});
   }
 
 
 
   @Get(`termsofservivce`)
-  public async getTerms(@Res() res: Response): Promise<void> {
+  public async getTerms(@Req() request: Request, @Res() res: Response): Promise<void> {
+     const setting:HostSetting = this.getSetting(request.get('Host'));
 
-    return res.render(`./views/languages/en/termsofservivce/main.njk`);
+     return res.render(`./views/languages/${setting.language}/termsofservivce/main.njk`);
   }
   @Get(`privacy`)
-  public async getPrivacy(@Res() res: Response): Promise<void> {
+  public async getPrivacy(@Req() request: Request, @Res() res: Response): Promise<void> {
+    const setting:HostSetting = this.getSetting(request.get('Host'));
 
-    return res.render(`./views/languages/en/privacy/main.njk`);
+    return res.render(`./views/languages/${setting.language}/privacy/main.njk`);
   }
   @Get(`about`)
-  public async getAbout(@Res() res: Response): Promise<void> {
+  public async getAbout(@Req() request: Request, @Res() res: Response): Promise<void> {
+    const setting:HostSetting = this.getSetting(request.get('Host'));
 
-    return res.render(`./views/languages/en/about/main.njk`);
+    return res.render(`./views/languages/${setting.language}/about/main.njk`);
   }
   @Post(`order`)
-  public async getOrder(@Body() data: OrderDto, @Res() res: Response): Promise<void> {
+  public async getOrder(@Req() request: Request, @Body() data: OrderDto, @Res() res: Response): Promise<void> {
+    const setting:HostSetting = this.getSetting(request.get('Host'));
+
     let {offer, source, quantity, price} = data;
-    const artworkMarketData: any = await this.marketService.getArtworkPage(offer);
+    const artworkMarketData: any = await this.marketService.getArtworkPage(setting.marketplace, offer);
     let position:any = artworkMarketData.offer.token;
     let typeArtwork:string = "Pre-NFT";
     price = artworkMarketData.offer.token.price;
@@ -79,18 +103,25 @@ export class AppController {
       typeArtwork = "Original";
     }
 
-    return res.render(`./views/languages/en/order/main.njk`, { artwork:artworkMarketData.offer,  position:position, typeArtwork, price, quantity, sum});
+    return res.render(`./views/languages/${setting.language}/order/main.njk`, { artwork:artworkMarketData.offer,  position:position, typeArtwork, price, quantity, sum});
 
   }
 
   @Get('success')
   public async successPay(@Req() request: Request, @Res() res: Response): Promise<void> {
-    const {session_id} = request.query;
-    const session = await this.stripeService.retrieve(session_id);
-    const order_uuid = session.metadata.order_uuid;
-    const paid = await this.operationService.createPaid(order_uuid);
-    const certificateData: any = await this.certificateService.getPaid(paid.uuid);
-    return res.render(`./views/languages/en/certificate/main.njk`, { paid: paid.uuid, holder:certificateData.holder,  certificates:certificateData.certificates});
+
+    const setting:HostSetting = this.getSetting(request.get('Host'));
+    let order_uuid = request.query.order;
+    if(setting.marketplace == `joincharible`)
+    {
+       const {session_id} = request.query;
+       const session = await this.stripeService.retrieve(session_id);
+       order_uuid = session.metadata.order_uuid;
+    }
+
+    const paid = await this.operationService.createPaid(setting.marketplace, order_uuid);
+    const certificateData: any = await this.certificateService.getPaid(setting.marketplace, paid.uuid);
+    return res.render(`./views/languages/${setting.language}/certificate/main.njk`, { paid: paid.uuid, holder:certificateData.holder,  certificates:certificateData.certificates});
 
 //    console.log('successPay', paid);
 //    return res.render(`./views/languages/en/successfully/main.njk`, {});
@@ -99,19 +130,57 @@ export class AppController {
   @Get('cancel')
   public async cancelPay(@Req() request: Request, @Res() res: Response): Promise<void> {
 //     console.log('cancelPay', data);
-    const {session_id} = request.query;
-    const session = await this.stripeService.retrieve(session_id);
-    const order_uuid = session.metadata.order_uuid;
-    console.log('cancelPay', order_uuid);
+    const setting:HostSetting = this.getSetting(request.get('Host'));
+    let order_uuid = request.query.order;
+    if(setting.marketplace == `joincharible`)
+    {
+       const {session_id} = request.query;
+       const session = await this.stripeService.retrieve(session_id);
+       order_uuid = session.metadata.order_uuid;
+    }
     return res.redirect('/');
-
 //     return res.render(`./views/languages/en/successfully/main.njk`, {});
 
   }
 
- 
+  private async pay(res: Response, marketplace: string, order:string, data: OrderArtworkDto): Promise<void> {
+     if(marketplace == `joincharible`)
+     {
+        const item = {
+           price_data: {
+              currency: 'usd',
+              product_data: {
+                 name: data.artwork
+              },
+              unit_amount: data.price * 100, // Цена в центах
+
+            },
+            quantity: data.quantity,
+       };
+       const session = await this.stripeService.checkout([item], order, `success`, `cancel`);
+       return res.redirect(303, session.url);
+     }
+     const item = {
+                    "Amount": data.price * data.quantity * 100,
+                    "OrderId": order,
+                    "Description": "Пожертвование на сумму " + data.price * data.quantity + " рублей",
+                    "DATA": {
+                              "Email": data.email
+                     },
+                     "PayType": "O",
+                     "SuccessURL": `${process.env.SERVER_DOMAIN_RU}/success?order=${order}`,
+                     "FailURL": `${process.env.SERVER_DOMAIN_RU}/cancel?order=${order}`,
+
+                  }
+     const session = await this.tinkoffService.init(item);
+     if(session.Success)
+       return res.redirect(303, session.PaymentURL);
+     return res.redirect('/');
+  }
+
   @Post(`order_artwork`)
-  public async createOrderAndPay(@Body() data: OrderArtworkDto, @Res() res: Response): Promise<void> {
+  public async createOrderAndPay(@Req() request: Request, @Body() data: OrderArtworkDto, @Res() res: Response): Promise<void> {
+     const setting:HostSetting = this.getSetting(request.get('Host'));
      const orderItem: SourceItemDto = { uuid: data.source,
                                         quantity: data.quantity,
                                         price: data.price
@@ -122,21 +191,8 @@ export class AppController {
                                          email: data.email
                                        };
 
-     const order:any = await this.operationService.createOrder(orderData);
-
-     const item = {
-        price_data: {
-           currency: 'usd',
-           product_data: {
-              name: data.artwork
-           },
-           unit_amount: data.price * 100, // Цена в центах
-
-        },
-        quantity: data.quantity,
-     };
-     const session = await this.stripeService.checkout([item], order.uuid, `success`, `cancel`);
-     return res.redirect(303, session.url);
+     const order:any = await this.operationService.createOrder(setting.marketplace, orderData);
+     return await this.pay(res, setting.marketplace, order.uuid, data);
 //    console.log(order);
 
 //    const paid = await this.operationService.createPaid(order.uuid);
@@ -167,9 +223,10 @@ export class AppController {
 
   @Get(`artwork`)
   public async getNFTPage(@Req() request: Request, @Res() res: Response): Promise<void> {
+    const setting:HostSetting = this.getSetting(request.get('Host'));
     const {uuid} = request.query;
-    const artworkMarketData: any = await this.marketService.getArtworkPage(uuid);
-    return res.render(`./views/languages/en/artwork/main.njk`, { artwork:artworkMarketData.offer,  organizations:artworkMarketData.subjects_gallery});
+    const artworkMarketData: any = await this.marketService.getArtworkPage(setting.marketplace, uuid);
+    return res.render(`./views/languages/${setting.language}/artwork/main.njk`, { artwork:artworkMarketData.offer,  organizations:artworkMarketData.subjects_gallery});
   }
 
   private getUUIDByName(name:string): string {
@@ -183,20 +240,21 @@ export class AppController {
   }
 
   @Get(`:organization`)
-  public async getOrganization(@Param(`organization`) organization: string, @Res() res: Response): Promise<void> {
+  public async getOrganization(@Req() request: Request, @Param(`organization`) organization: string, @Res() res: Response): Promise<void> {
+     const setting:HostSetting = this.getSetting(request.get('Host'));
 
 
 
     const uuidOrganization = this.getUUIDByName(organization);
     if(uuidOrganization == undefined)
     {
-       const mainMarketData: any = await this.marketService.getMainPage();
-       return res.render(`./views/languages/en/main/main.njk`, { gallery:mainMarketData.gallery,  organizations:mainMarketData.subjects_gallery});
+       const mainMarketData: any = await this.marketService.getMainPage(setting.marketplace);
+       return res.render(`./views/languages/${setting.language}/main/main.njk`, { gallery:mainMarketData.gallery,  organizations:mainMarketData.subjects_gallery});
     }
 
-    const organizationMarketData: any = await this.marketService.getOrganizationPage(uuidOrganization);
+    const organizationMarketData: any = await this.marketService.getOrganizationPage(setting.marketplace, uuidOrganization);
 
-    return res.render(`./views/languages/en/organization/main.njk`, { organization:organizationMarketData.subject_gallery});
+    return res.render(`./views/languages/${setting.language}/organization/main.njk`, { organization:organizationMarketData.subject_gallery});
   }
 
 }

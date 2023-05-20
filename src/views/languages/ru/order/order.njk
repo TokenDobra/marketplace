@@ -1,0 +1,30 @@
+<div class="order">
+  <div class="container">
+     <div class="title">Заказ</div>
+     <div class="order-item">
+        <div class="order-item-image">
+           <img class="order-image" src="{{artwork.image_link}}">
+        </div>
+        <div class="order-item-name">
+           <ul>
+              <li>
+                 Автор: <span class="order-item-value">{{artwork.viewperson.fullname}}</span>
+              </li>
+              <li>
+                 Картина: <span class="order-item-value">{{artwork.viewasset.name}}</span>
+              </li>
+              <li>
+                 Благодарность: <span class="order-item-value">{{typeArtwork}}</span>
+              </li>
+              <li>
+                 Количество: <span class="order-item-value">{{quantity}}</span>
+              </li>
+              <li>
+                 Сумма поддержки: <span class="order-item-value">{{sum}}&nbsp;&#8381;</span>
+              </li>
+           </ul>
+        </div>
+     </div>
+
+  </div>
+</div>

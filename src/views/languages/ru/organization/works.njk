@@ -1,0 +1,40 @@
+    <div class="nfts">
+        <div class="container">
+                {% for item in organization.offers %}
+
+            <div onclick="location.href='/artwork?uuid={{item.offer}}'" class="item-nft">
+                <div class="bg"></div>
+                <img src="{{item.image_link}}" alt="">
+                <div class="tips">
+                    <span class="tool tip"
+                        data-tool="Сделав пожертвование в нашей галереи вы получаете pre-NFT. Это ваучер, резервирующий для вас NFT выбранной картины.">
+                        <p>pre-NFT</p>
+                    </span>
+                    <span class="tool tip"
+                        data-tool="Эту картину можно приобрести в оригинале">
+                        <p>картина</p>
+                    </span>
+                </div>
+                <div class="bottom">
+                    <p class="name">{{item.viewasset.name}}</p>
+                    <div class="info">
+                        <div class="stats">
+                            <p class="price">{{item.token.price}} &#8381;</p>
+                            <p class="tip">{{item.viewperson.fullname}}</p>
+                        </div>
+                            <div class="progress-bar">
+                                <div class="bar" style="width: {{item.token.progress}}%;"></div>
+                            </div>
+                        <span
+                            data-tool="Эта картина оцифрована в количестве {{item.token.issue}} токенов"
+                            class="tool">
+                            <p class="count tip2"><span>{{item.token.sold}}</span> / {{item.token.issue}}</p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+{% endfor %}
+
+        </div>
+    </div>
+

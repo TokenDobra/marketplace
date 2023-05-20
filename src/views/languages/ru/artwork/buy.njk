@@ -1,0 +1,147 @@
+    <div class="buy">
+        <div class="container">
+            <div class="left-side">
+                <p class="head">{{artwork.viewasset.name}}</p>
+                <div class="head-info">
+                    <div class="author">
+                        <p>Автор</p>
+                        <p>{{artwork.viewperson.fullname}}</p>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="fund-name">
+                        <p>Организация</p>
+                        <p>{{artwork.viewsubject.name}}</p>
+                    </div>
+                </div>
+                <div class="sold">
+                    <p><span></span>Продано {{artwork.token.sold}}/{{artwork.token.issue}} pre-NFTs</p>
+                    <div class="progress-bar"><div class="bar" style="width: {{artwork.token.progress}}%;"></div></div>
+                </div>
+                <div class="right-side phone">
+                   <form>
+                     <input type="hidden" id="offer" name="offer" value="{{artwork.offer}}"/>
+                     <input type="hidden" id="source" name="source" value="{{artwork.token.source}}"/>
+                     <input type="hidden" id="quantity" name="quantity" value="1"/>
+                     <input type="hidden" id="price" name="price" value="1"/>
+                     <input type="hidden" id="token_rest" name="token_rest" value="{{artwork.token.rest}}"/>
+                     <input type="hidden" id="original_rest" name="original_rest" value="{{artwork.original.rest}}"/>
+                     <input type="hidden" id="token_source" name="token_source" value="{{artwork.token.source}}"/>
+                     <input type="hidden" id="original_source" name="original_source" value="{{artwork.original.source}}"/>
+
+                      <div class="head-info">
+                         <div class="artwork-type">
+                           Токен
+                         </div>
+                      </div>
+
+                      <div class="question"></div>
+                      <div class="answer">Делая пожертвование, вы можете получить цифровую копию картины (pre-NFT) или оригинал.
+                      </div>
+                      <div class="head">
+                          <p class="price">{{artwork.token.price}} &#8381;</p>
+                          <p class="how-many-left">Осталось {{artwork.token.rest}} шт.</p>
+                       </div>
+                       <div class="quantity">
+                          <p><span id="nft-quantity-mob">1</span> pre-NFT</p>
+                          <div class="plus-minus">
+                              <button type="button" class="plus-mob">
+                                  <img src="https://raw.githubusercontent.com/jamb17/token-dobra/e153865a99125d210949fc653431b3b3a3e491f8/%2B.svg"
+                                      alt="">
+                              </button>
+                              <a class="minus-mob">
+                                  <div class="icon"></div>
+                              </a>
+                         </div>
+                       </div>
+                       {% if artwork.token.rest > 0 %}
+                          <button type="button" class="btn-black buy-token-button">Поддержать</button>
+                       {% else %}
+                          <button class="btn-red" disabled>Продано</button>
+                       {% endif %}
+                       <div class="head-info">
+                         <div class="artwork-type">
+                           Картина
+                         </div>
+                       </div>
+
+                       <div class="head">
+                          <p class="price">{{artwork.original.price}} &#8381;</p>
+                       </div>
+                       {% if artwork.original.rest > 0 %}
+                          <button type="button" class="btn-black buy-original-button">Купить картину</button>
+                       {% else %}
+                          <button class="btn-red" disabled>Продано</button>
+                       {% endif %}
+
+                       <div class="hyper-links">
+                          <P class="hyper-link one">Что такое pre-NFT?</P>
+                          <P class="hyper-link two">Как обменять pre-NFT на NFT?</P>
+                       </div>
+                   </form>
+                </div>
+                <div class="divider"></div>
+            </div>
+            <div class="right-side">
+                <form method="post" action="/order" id="order_form">
+                   <input type="hidden" id="offer" name="offer" value="{{artwork.offer}}"/>
+                   <input type="hidden" id="source" name="source" value="{{artwork.token.source}}"/>
+                   <input type="hidden" id="quantity" name="quantity" value="1"/>
+                   <input type="hidden" id="price" name="price" value="{{artwork.token.price}}"/>
+                   <input type="hidden" id="token_rest" name="token_rest" value="{{artwork.token.rest}}"/>
+                   <input type="hidden" id="original_rest" name="original_rest" value="{{artwork.original.rest}}"/>
+                   <input type="hidden" id="token_source" name="token_source" value="{{artwork.token.source}}"/>
+                   <input type="hidden" id="original_source" name="original_source" value="{{artwork.original.source}}"/>
+                   <input type="hidden" id="original_price" name="original_price" value="{{artwork.original.price}}"/>
+
+                   <div class="head-info">
+                      <div class="artwork-type">
+                         Токен
+                      </div>
+                   </div>
+
+                   <div class="question"></div>
+                   <div class="answer">Делая пожертвование, вы можете получить цифровую копию картины (pre-NFT) или оригинал.
+                   </div>
+                   <div class="head">
+                      <p class="price">{{artwork.token.price}} &#8381;</p>
+                      <p class="how-many-left">Осталось {{artwork.token.rest}} шт.</p>
+                   </div>
+                   <div class="quantity">
+                       <p><span id="nft-quantity">1</span> pre-NFT</p>
+                       <div class="plus-minus">
+                           <button type="button" class="plus">
+                               <img src="https://raw.githubusercontent.com/jamb17/token-dobra/e153865a99125d210949fc653431b3b3a3e491f8/%2B.svg"
+                                alt="">
+                           </button>
+                           <a class="minus">
+                              <div class="icon"></div>
+                           </a>
+                       </div>
+                   </div>
+                   {% if artwork.token.rest > 0 %}
+                      <button type="button" class="btn-black buy-token-button">Поддержать</button>
+                   {% else %}
+                      <button class="btn-red" disabled>Продано</button>
+                   {% endif %}
+                   <div class="head-info">
+                      <div class="artwork-type">
+                         Картина
+                      </div>
+                   </div>
+                   <div class="head">
+                      <p class="price">{{artwork.original.price}} &#8381;</p>
+                   </div>
+                   {% if artwork.original.rest > 0 %}
+                      <button type="button" class="btn-black buy-original-button">Купить картину</button>
+                   {% else %}
+                      <button class="btn-red" disabled>Продано</button>
+                   {% endif %}
+
+                </form>
+                <div class="hyper-links">
+                   <P class="hyper-link one">Что такое pre-NFT?</P>
+                   <P class="hyper-link two">Как обменять pre-NFT на NFT?</P>
+                </div>
+            </div>
+        </div>
+    </div>

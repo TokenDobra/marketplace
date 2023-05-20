@@ -1,0 +1,48 @@
+<div class="certificates">
+  <div class="container">
+    {% for item in certificates %}
+       <div class="certificate-item">
+          <div class="certificate-item-image">
+             <img class="certificate-image" src="{{item.image_link}}">
+          </div>
+          <div class="certificate-item-description">
+             <span class='certificate-item-description-name'>{{item.viewasset.name}}</span>
+             <span class='certificate-item-description-type'>
+                 {% if item.isOriginal %}
+                    картина
+                 {% else %}
+                    pre-NFT
+                 {% endif %}
+             </span>
+             <p>
+                 <span class="certificate-item-description-title">Автор:</span>
+                 <span class="certificate-item-description-title">{{item.viewperson.fullname}}</span>
+             </p>
+             <p>
+                 <span class="certificate-item-description-title">Организация:</span>
+                 <span class="certificate-item-description-title">{{item.viewsubject.name}}</span>
+             </p>
+             <p>
+                 <span class="certificate-item-description-title">Цена:</span>
+                 <span class="certificate-item-description-title">{{item.price}} &#8381;</span>
+             </p>
+
+          </div>
+          {% if item.isOriginal %}
+             <div class="certificate-item-description">
+             </div>
+          {% else %}
+             <div class="certificate-item-description">
+               <p>
+                <span class="certificate-item-description-title">pre-NFT номер:</span>
+              </p>
+              <p>
+                <span class="certificate-item-description-title">{{item.certificate}}</span>
+              </p>
+             </div>
+          {% endif %}
+       </div>
+    {% endfor %}
+
+   </div>
+</div>

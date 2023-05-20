@@ -2,20 +2,22 @@ import { ForbiddenException, Injectable } from '@nestjs/common';
 import { HttpService } from "@nestjs/axios";
 import { map, catchError, lastValueFrom } from 'rxjs';
 
+
 @Injectable()
-export class CertificateService {
-   private backERP_API:string;
+export class TinkoffService {
    constructor(private http: HttpService) {
-     this.backERP_API = process.env.BACKERP_API;
    }
-   getAPI(marketplace, method)
+
+   getAPI(method)
    {
-      return `${ this.backERP_API }certificates/${marketplace}/${ method }`;
+      return `https://securepay.tinkoff.ru/v2/${ method }`;
    }
-   async getPaid(marketplace, uuid)
+   async init(data: any)
    {
+       data.TerminalKey = process.env.TINKOFF_TERNINAL_KEY;
+       console.log('req data', data);
        const request = this.http
-                  .get(this.getAPI(marketplace, `paid`), {params:{uuid}})
+                  .post(this.getAPI(`Init`), data)
 
                   .pipe(
                           map((res) => res.data),
@@ -26,7 +28,8 @@ export class CertificateService {
                        }),
                    );
         const result = await lastValueFrom(request);
-        return result.data;
+        return result;
    }
+
 
 }

@@ -1,225 +1,65 @@
     <div class="funds pc">
         <div class="container">
-            <p class="title">Фонды</p>
+            <p class="title">Организации</p>
+      {% for organization in organizations %}
+
             <div class="fund">
                 <div class="content">
-                    <div class="description">
-                        <img src="https://github.com/jamb17/token-dobra/blob/main/avatar.png?raw=true"
+                    <div onclick="location.href='/{{organization.view.page_link}}'" class="description">
+                        <img src="{{organization.view.Lable.link}}"
                             alt="" class="logo">
                         <div class="head">
-                            <p>Журавлик</p>
-                            <p>10 картин | 10 000 NFT</p>
+                            <p>{{organization.view.name}}</p>
+                            <p>{{organization.count_creations}} картин | {{organization.count_tokens}} NFT</p>
                         </div>
                         <div class="story">
-                            <p class="story">Какой-то рассказ о фонде рассказ о фонде рассказ о фонде рассказ о фонде
-                                рассказ о фонде рассказ о фонде рассказ о фонде рассказ. <a href="">Подробнее</a></p>
+                            <p class="story">{{organization.view.short_description | safe }}&nbsp;&nbsp;<a href="{{organization.view.page_link}}">Подробнее</a></p>
                         </div>
                     </div>
                     <div class="nft-slider">
                         <div class="wrapper">
-                            <div class="item-nft">
+                    {% for item in organization.offers.slice(0,3) %}
+
+                            <div onclick="location.href='/artwork?uuid={{item.offer}}'" class="item-nft">
                                 <div class="bg"></div>
-                                <img src="https://github.com/jamb17/token-dobra/blob/main/image%203%20pc.png?raw=true"
+                                <img src="{{item.image_link}}"
                                     alt="">
                                 <div class="tips">
                                     <span class="tool tip"
-                                        data-tool="Оплачивайте pre-NFT банковской картой. Вам не нужен web3 кошелёк и криптовалюта. В любой момент вы сможете обменять приобретённый pre-NFT на NFT">
+                                        data-tool="Сделав пожертвование в нашей галереи вы получаете pre-NFT. Это ваучер, резервирующий для вас NFT выбранной картины.">
                                         <p>pre-NFT</p>
                                     </span>
                                     <span class="tool tip"
-                                        data-tool="Оплачивайте pre-NFT банковской картой. Вам не нужен web3 кошелёк и криптовалюта. В любой момент вы сможете обменять приобретённый pre-NFT на NFT">
+                                        data-tool="Эту картину можно приобрести в оригинале">
                                         <p>картина</p>
                                     </span>
                                 </div>
                                 <div class="bottom">
-                                    <p class="name">Дино</p>
+                                    <p class="name">{{item.viewasset.name}}</p>
                                     <div class="info">
                                         <div class="stats">
-                                            <p class="price">1500 ₽</p>
-                                            <p class="tip">Олег Орлов</p>
+                                            <p class="price">{{item.token.price}} &#8381;</p>
+                                            <p class="tip">{{item.viewperson.fullname}}</p>
                                         </div>
-                                        <div class="progress-bar"><div class="bar"></div></div>
+
+                                        <div class="progress-bar">
+                                           <div class="bar" style="width: {{item.token.progress}}%;"></div>
+                                        </div>
                                         <span
-                                            data-tool="Эта картина оцифрована в количестве 1000 токенов. 10 токенов по цене 1500 ₽ и 1 токен по цене 50 000 ₽."
+                                            data-tool="Эта картина оцифрована в количестве {{item.token.issue}} токенов"
                                             class="tool">
-                                            <p class="count tip2"><span>50</span> / 1000</p>
+                                            <p class="count tip2"><span>{{item.token.sold}}</span> / {{item.token.issue}}</p>
                                         </span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="item-nft">
-                                <div class="bg"></div>
-                                <img src="https://github.com/jamb17/token-dobra/blob/main/image%203%20pc.png?raw=true"
-                                    alt="">
-                                <div class="tips">
-                                    <span class="tool tip"
-                                        data-tool="Оплачивайте pre-NFT банковской картой. Вам не нужен web3 кошелёк и криптовалюта. В любой момент вы сможете обменять приобретённый pre-NFT на NFT">
-                                        <p>pre-NFT</p>
-                                    </span>
-                                    <span class="tool tip"
-                                        data-tool="Оплачивайте pre-NFT банковской картой. Вам не нужен web3 кошелёк и криптовалюта. В любой момент вы сможете обменять приобретённый pre-NFT на NFT">
-                                        <p>картина</p>
-                                    </span>
-                                </div>
-                                <div class="bottom">
-                                    <p class="name">Дино</p>
-                                    <div class="info">
-                                        <div class="stats">
-                                            <p class="price">1500 ₽</p>
-                                            <p class="tip">Олег Орлов</p>
-                                        </div>
-                                        <div class="progress-bar"><div class="bar"></div></div>
-                                        <span
-                                            data-tool="Эта картина оцифрована в количестве 1000 токенов. 10 токенов по цене 1500 ₽ и 1 токен по цене 50 000 ₽."
-                                            class="tool">
-                                            <p class="count tip2"><span>50</span> / 1000</p>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item-nft">
-                                <div class="bg"></div>
-                                <img src="https://github.com/jamb17/token-dobra/blob/main/image%203%20pc.png?raw=true"
-                                    alt="">
-                                <div class="tips">
-                                    <span class="tool tip"
-                                        data-tool="Оплачивайте pre-NFT банковской картой. Вам не нужен web3 кошелёк и криптовалюта. В любой момент вы сможете обменять приобретённый pre-NFT на NFT">
-                                        <p>pre-NFT</p>
-                                    </span>
-                                    <span class="tool tip"
-                                        data-tool="Оплачивайте pre-NFT банковской картой. Вам не нужен web3 кошелёк и криптовалюта. В любой момент вы сможете обменять приобретённый pre-NFT на NFT">
-                                        <p>картина</p>
-                                    </span>
-                                </div>
-                                <div class="bottom">
-                                    <p class="name">Дино</p>
-                                    <div class="info">
-                                        <div class="stats">
-                                            <p class="price">1500 ₽</p>
-                                            <p class="tip">Олег Орлов</p>
-                                        </div>
-                                        <div class="progress-bar"><div class="bar"></div></div>
-                                        <span
-                                            data-tool="Эта картина оцифрована в количестве 1000 токенов. 10 токенов по цене 1500 ₽ и 1 токен по цене 50 000 ₽."
-                                            class="tool">
-                                            <p class="count tip2"><span>50</span> / 1000</p>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                    {% endfor %}
+
+                         </div>
                     </div>
                 </div>
             </div>
-            <div class="fund">
-                <div class="content">
-                    <div class="description">
-                        <img src="https://github.com/jamb17/token-dobra/blob/main/avatar.png?raw=true"
-                            alt="" class="logo">
-                        <div class="head">
-                            <p>Журавлик</p>
-                            <p>10 картин | 10 000 NFT</p>
-                        </div>
-                        <div class="story">
-                            <p class="story">Какой-то рассказ о фонде рассказ о фонде рассказ о фонде рассказ о фонде
-                                рассказ о фонде рассказ о фонде рассказ о фонде рассказ. <a href="">Подробнее</a></p>
-                        </div>
-                    </div>
-                    <div class="nft-slider">
-                        <div class="wrapper">
-                            <div class="item-nft">
-                                <div class="bg"></div>
-                                <img src="https://github.com/jamb17/token-dobra/blob/main/image%203%20pc.png?raw=true"
-                                    alt="">
-                                <div class="tips">
-                                    <span class="tool tip"
-                                        data-tool="Оплачивайте pre-NFT банковской картой. Вам не нужен web3 кошелёк и криптовалюта. В любой момент вы сможете обменять приобретённый pre-NFT на NFT">
-                                        <p>pre-NFT</p>
-                                    </span>
-                                    <span class="tool tip"
-                                        data-tool="Оплачивайте pre-NFT банковской картой. Вам не нужен web3 кошелёк и криптовалюта. В любой момент вы сможете обменять приобретённый pre-NFT на NFT">
-                                        <p>картина</p>
-                                    </span>
-                                </div>
-                                <div class="bottom">
-                                    <p class="name">Дино</p>
-                                    <div class="info">
-                                        <div class="stats">
-                                            <p class="price">1500 ₽</p>
-                                            <p class="tip">Олег Орлов</p>
-                                        </div>
-                                        <div class="progress-bar"><div class="bar"></div></div>
-                                        <span
-                                            data-tool="Эта картина оцифрована в количестве 1000 токенов. 10 токенов по цене 1500 ₽ и 1 токен по цене 50 000 ₽."
-                                            class="tool">
-                                            <p class="count tip2"><span>33</span> / 1000</p>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item-nft">
-                                <div class="bg"></div>
-                                <img src="https://github.com/jamb17/token-dobra/blob/main/image%203%20pc.png?raw=true"
-                                    alt="">
-                                <div class="tips">
-                                    <span class="tool tip"
-                                        data-tool="Оплачивайте pre-NFT банковской картой. Вам не нужен web3 кошелёк и криптовалюта. В любой момент вы сможете обменять приобретённый pre-NFT на NFT">
-                                        <p>pre-NFT</p>
-                                    </span>
-                                    <span class="tool tip"
-                                        data-tool="Оплачивайте pre-NFT банковской картой. Вам не нужен web3 кошелёк и криптовалюта. В любой момент вы сможете обменять приобретённый pre-NFT на NFT">
-                                        <p>картина</p>
-                                    </span>
-                                </div>
-                                <div class="bottom">
-                                    <p class="name">Дино</p>
-                                    <div class="info">
-                                        <div class="stats">
-                                            <p class="price">1500 ₽</p>
-                                            <p class="tip">Олег Орлов</p>
-                                        </div>
-                                        <div class="progress-bar"><div class="bar"></div></div>
-                                        <span
-                                            data-tool="Эта картина оцифрована в количестве 1000 токенов. 10 токенов по цене 1500 ₽ и 1 токен по цене 50 000 ₽."
-                                            class="tool">
-                                            <p class="count tip2"><span>678</span> / 1000</p>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item-nft">
-                                <div class="bg"></div>
-                                <img src="https://github.com/jamb17/token-dobra/blob/main/image%203%20pc.png?raw=true"
-                                    alt="">
-                                <div class="tips">
-                                    <span class="tool tip"
-                                        data-tool="Оплачивайте pre-NFT банковской картой. Вам не нужен web3 кошелёк и криптовалюта. В любой момент вы сможете обменять приобретённый pre-NFT на NFT">
-                                        <p>pre-NFT</p>
-                                    </span>
-                                    <span class="tool tip"
-                                        data-tool="Оплачивайте pre-NFT банковской картой. Вам не нужен web3 кошелёк и криптовалюта. В любой момент вы сможете обменять приобретённый pre-NFT на NFT">
-                                        <p>картина</p>
-                                    </span>
-                                </div>
-                                <div class="bottom">
-                                    <p class="name">Дино</p>
-                                    <div class="info">
-                                        <div class="stats">
-                                            <p class="price">1500 ₽</p>
-                                            <p class="tip">Олег Орлов</p>
-                                        </div>
-                                        <div class="progress-bar"><div class="bar"></div></div>
-                                        <span
-                                            data-tool="Эта картина оцифрована в количестве 1000 токенов. 10 токенов по цене 1500 ₽ и 1 токен по цене 50 000 ₽."
-                                            class="tool">
-                                            <p class="count tip2"><span>321</span> / 1000</p>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           {% endfor %}
         </div>
     </div>

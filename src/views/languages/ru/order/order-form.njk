@@ -1,0 +1,37 @@
+<div class="order-form">
+  <div class="container">
+    <form name="myForm" action="/order_artwork" onsubmit="return validateForm()" method="post">
+       <ul class="flex-outer">
+          <li>
+            <label for="fullname">ФИО</label>
+            <input type="text" name="fullname" placeholder="Введите ФИО" required >
+  
+          </li>
+          <li>
+            <label for="phone">Мобильный телефон</label>
+            <input type="tel" name="phone" placeholder="Введите мобильный телефон" required pattern="[\+()]*(?:\d[\s\-\.()xX]*){10,14}">
+          </li>
+          <li>
+            <label for="email">Электронная почта</label>
+             <input type="text" name="email" placeholder="Введите электронную почту" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Не верный формат электронной почты">
+          </li>
+          <li>
+            <input type="checkbox" name="agree" required >&nbsp;&nbsp;&nbsp;
+            <label for="agree">Я согласен с <a href='/termsofservivce' target='_blank'>Пользовательским соглашением</a> и <a href='/privacy' target='_blank'>Политикой обработки персональных данных</a></label>
+          </li>
+
+
+
+          <li>
+            <input type="hidden" name="source" value="{{position.source}}">
+            <input type="hidden" name="quantity" value="{{quantity}}">
+            <input type="hidden" name="price" value="{{price}}">
+            <input type="hidden" name="artwork" value="{{artwork.viewasset.name}}">
+
+
+            <button class='order-button'>Оплатить</button>
+          </li>
+        </ul>
+     </form>
+   </div>
+</div>

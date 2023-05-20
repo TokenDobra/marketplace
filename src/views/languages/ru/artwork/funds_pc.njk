@@ -1,6 +1,6 @@
-    <div class="funds pc">
+    <div class="funds pc" id="funds_pc">
         <div class="container">
-            <p class="title">Non-profit organizations</p>
+            <p class="title">Другие картины из этой организации</p>
       {% for organization in organizations %}
 
             <div class="fund">
@@ -10,10 +10,10 @@
                             alt="" class="logo">
                         <div class="head">
                             <p>{{organization.view.name}}</p>
-                            <p>{{organization.count_creations}} artworks | {{organization.count_tokens}} NFT</p>
+                            <p>{{organization.count_creations}} картин | {{organization.count_tokens}} NFT</p>
                         </div>
                         <div class="story">
-                            <p class="story">{{organization.view.short_description | safe }}&nbsp;&nbsp;<a href="{{organization.view.page_link}}">Learn more</a></p>
+                            <p class="story">{{organization.view.short_description | safe }}&nbsp;&nbsp;<a href="{{organization.view.page_link}}">Подробнее</a></p>
                         </div>
                     </div>
                     <div class="nft-slider">
@@ -26,19 +26,19 @@
                                     alt="">
                                 <div class="tips">
                                     <span class="tool tip"
-                                        data-tool="By making a donation on our website, you will receive pre-NFT. This is a voucher that reserves the NFT of the selected artwork for you">
+                                        data-tool="Сделав пожертвование в нашей галереи вы получаете pre-NFT. Это ваучер, резервирующий для вас NFT выбранной картины.">
                                         <p>pre-NFT</p>
                                     </span>
                                     <span class="tool tip"
-                                        data-tool="This artwork can be purchased in original">
-                                        <p>Original</p>
+                                        data-tool="Эту картину можно приобрести в оригинале">
+                                        <p>картина</p>
                                     </span>
                                 </div>
                                 <div class="bottom">
                                     <p class="name">{{item.viewasset.name}}</p>
                                     <div class="info">
                                         <div class="stats">
-                                            <p class="price">{{item.token.price}} $</p>
+                                            <p class="price">{{item.token.price}} &#8381;</p>
                                             <p class="tip">{{item.viewperson.fullname}}</p>
                                         </div>
 
@@ -46,7 +46,7 @@
                                            <div class="bar" style="width: {{item.token.progress}}%;"></div>
                                         </div>
                                         <span
-                                            data-tool="This artwork is digitized in the amount of {{item.token.issue}} tokens"
+                                            data-tool="Эта картина оцифрована в количестве {{item.token.issue}} токенов"
                                             class="tool">
                                             <p class="count tip2"><span>{{item.token.sold}}</span> / {{item.token.issue}}</p>
                                         </span>

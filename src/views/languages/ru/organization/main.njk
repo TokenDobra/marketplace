@@ -1,0 +1,16 @@
+{% set main_css = 'assets/css/organization/main.css' %}
+{% set media_css = 'assets/css/organization/media.css' %}
+{% set main_js = 'assets/js/organization/script.js' %}
+
+
+{% extends "../layouts/marketplace.layout.njk" %}
+
+{% block content %}
+   {% include "./main_image.njk"%}
+   {% include "./description.njk"%}
+   {% include "./works.njk"%}
+
+   {% include "../shared/nft_simple.njk"%}
+
+
+{% endblock %}

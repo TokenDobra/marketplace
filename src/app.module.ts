@@ -9,12 +9,13 @@ import { ConfigModule } from '@nestjs/config';
 import { OperationService } from './operation/operation.service';
 import { StripeService } from './stripe/stripe.service';
 import { CertificateService } from './certificate/certificate.service';
+import { TinkoffService } from './tinkoff/tinkoff.service';
 
 
 @Module({
   imports: [HttpModule, ConfigModule.forRoot()],
   controllers: [AppController],
-  providers: [AppService, MarketService, OperationService, StripeService, CertificateService],
+  providers: [AppService, MarketService, OperationService, StripeService, CertificateService, TinkoffService],
 })
 export class AppModule {
 

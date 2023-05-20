@@ -8,14 +8,14 @@ export class MarketService {
    constructor(private http: HttpService) {
      this.backERP_API = process.env.BACKERP_API;
    }
-   getAPI(method)
+   getAPI(marketplace, method)
    {
-      return `${ this.backERP_API }marketpoint/joincharible/${ method }`;
+      return `${ this.backERP_API }marketpoint/${marketplace}/${ method }`;
    }
-   async getMainPage()
+   async getMainPage(marketplace)
    {
        const request = this.http
-                  .get(this.getAPI(`main`))
+                  .get(this.getAPI(marketplace, `main`))
 
                   .pipe(
                           map((res) => res.data),
@@ -28,10 +28,10 @@ export class MarketService {
         const result = await lastValueFrom(request);
         return result.data;
    }
-   async getArtworkPage(offer)
+   async getArtworkPage(marketplace, offer)
    {
        const request = this.http
-                  .get(this.getAPI(`creation`), {params:{offer}})
+                  .get(this.getAPI(marketplace, `creation`), {params:{offer}})
 
                   .pipe(
                           map((res) => res.data),
@@ -44,10 +44,10 @@ export class MarketService {
         const result = await lastValueFrom(request);
         return result.data;
    }
-   async getOrganizationPage(subject)
+   async getOrganizationPage(marketplace, subject)
    {
        const request = this.http
-                  .get(this.getAPI(`organization`), {params:{subject}})
+                  .get(this.getAPI(marketplace, `organization`), {params:{subject}})
 
                   .pipe(
                           map((res) => res.data),

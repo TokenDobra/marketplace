@@ -1,16 +1,17 @@
 {% set main_css = 'assets/css/main/main.css' %}
 {% set media_css = 'assets/css/main/media.css' %}
-{% set main_js = 'assets/js/main/script.js' %}
+{% set main_js = 'assets/js/artwork/script.js' %}
 
 
 {% extends "../layouts/marketplace.layout.njk" %}
 
 {% block content %}
-
-   {% include "./intro.njk"%}
-   {% include "./lastworks.njk"%}
+   {% include "./answers.njk"%}
+   {% include "./picture.njk"%}
+   {% include "./buy.njk"%}
+   {% include "../shared/tell_about.njk"%}
    {% include "./funds_pc.njk"%}
    {% include "./funds.njk"%}
-   {% include "../shared/nft_simple.njk"%}
+
 
 {% endblock %}

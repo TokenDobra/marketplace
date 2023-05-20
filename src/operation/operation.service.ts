@@ -22,14 +22,14 @@ export class OperationService {
    constructor(private http: HttpService) {
      this.backERP_API = process.env.BACKERP_API;
    }
-   getAPI(method)
+   getAPI(marketplace,method)
    {
       return `${ this.backERP_API }operations/${ method }`;
    }
-   async createOrder(data: CreateOrderDto)
+   async createOrder(marketplace:string, data: CreateOrderDto)
    {
        const request = this.http
-                  .post(this.getAPI(`makeOrder`), data)
+                  .post(this.getAPI(marketplace, `makeOrder`), data)
 
                   .pipe(
                           map((res) => res.data),
@@ -42,10 +42,10 @@ export class OperationService {
         const result = await lastValueFrom(request);
         return result.data;
    }
-   async createPaid(order:string)
+   async createPaid(marketplace:string, order:any)
    {
        const request = this.http
-                  .post(this.getAPI(`makePaid`), {order})
+                  .post(this.getAPI(marketplace, `makePaid`), {order, marketplace})
 
                   .pipe(
                           map((res) => res.data),
