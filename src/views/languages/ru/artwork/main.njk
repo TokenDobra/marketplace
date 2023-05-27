@@ -1,7 +1,9 @@
 {% set main_css = 'assets/css/main/main.css' %}
 {% set media_css = 'assets/css/main/media.css' %}
 {% set main_js = 'assets/js/artwork/script.js' %}
-
+{% set title = 'Картина «'+ artwork.viewasset.name + '» на ТокенДобра' %}
+{% set omg_image = artwork.image_link %}
+{% set description = 'Картина «' + artwork.viewasset.name + '», автор – '+ artwork.viewperson.fullname + ' из организации «' + artwork.viewsubject.name + '». Вы можете поддержать организацию, сделав пожертвание. В качестве благодарности вы получите оригинал картины или её цифровой NFT/pre-NFT токен.' %}
 
 {% extends "../layouts/marketplace.layout.njk" %}
 
