@@ -1,0 +1,48 @@
+{% set main_css = 'assets/css/main/main.css' %}
+{% set media_css = 'assets/css/main/media.css' %}
+{% set main_js = 'assets/js/main/script.js' %}
+{% set title = 'ТокенДобра' %}
+{% set omg_image = '/images/badge_1.png' %}
+{% set description = 'Благотворительная NFT-галерея картин людей с особыми потребностями' %}
+
+{% extends "../layouts/marketplace.layout.njk" %}
+
+{% block content %}
+<div class='terms'>
+   <div class="container">
+      <center>
+      <center>
+<br/>
+
+<div class="title">1. Куда идут пожертвования?</div>
+<div class="item-terms">Денежные средства переводятся в организацию, которую представляет автор картины.</div>
+<br/>
+<div class="title">2. Что такое pre-NFT?</div>
+<div class="item-terms">Это ваучер, резервирующий для вас NFT выбранной картины, в качестве благодарности за пожертвование. Вы можете обменять его на NFT в любой момент при наличии у вас Web3-кошелька.</div>
+<br/>
+<div class="title">3. Какой блокчейн вы используете для NFT?</div>
+<div class="item-terms">Мы используем блокчейн Solana.</div>
+<br/>
+<div class="title">4. Могу ли я получить оригинал картины?</div>
+<div class="item-terms">Да, большинство картин можно получить в оригинале за бОльшее пожертвование.</div>
+<br/>
+<div class="title">5. Как можно поддержать ТокенДобра?</div>
+<div class="item-terms">
+Мы будем рады принять помощь от единомышленников и профессионалов из следующих сфер: 
+  <ul>
+     <li>маркетинг</li>
+     <li>PR</li>
+     <li>дизайн (веб, графический, моушн, и т.п.)</li>
+     <li>веб-разработка</li>
+     <li>копирайтинг</li>
+  </ul>
+</div>
+<br/>
+<div class="item-terms">Напишите нам на почту pavel@tokendobra.ru, если готовы помочь.</div>
+
+
+
+   </div>
+</div>
+
+{% endblock %}

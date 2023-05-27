@@ -66,6 +66,12 @@ export class AppController {
   }
 
 
+  @Get(`faq`)
+  public async getFaq(@Req() request: Request, @Res() res: Response): Promise<void> {
+     const setting:HostSetting = this.getSetting(request.get('Host'));
+
+     return res.render(`./views/languages/${setting.language}/faq/main.njk`);
+  }
 
   @Get(`termsofservivce`)
   public async getTerms(@Req() request: Request, @Res() res: Response): Promise<void> {
