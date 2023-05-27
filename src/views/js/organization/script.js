@@ -66,6 +66,9 @@ $('.item-nft').hover(function() {
 $(document).ready(function() {
     document.querySelector('.form_text').textContent = window.location.href;
 });
+$().ready(function(){
+  $('.form_text').text(window.location.href);
+});
 /*
 $(document).ready(function() {
     $('.item-nft').each(function(){

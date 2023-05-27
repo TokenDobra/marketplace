@@ -5,6 +5,9 @@
             spaceBetween: 16,
         });
 
+$().ready(function(){
+  $('.form_text').text(window.location.href);
+});
 $('.buy-token-button').click(function(){
   $('#order_form').submit();
 

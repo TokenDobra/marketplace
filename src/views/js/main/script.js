@@ -75,7 +75,9 @@ $('#open').click(function() {
         $('.content').addClass('open');
     }, 100);
 });
-
+$().ready(function(){
+  $('.form_text').text(window.location.href);
+});
 /*
 
 $(document).ready(function() {

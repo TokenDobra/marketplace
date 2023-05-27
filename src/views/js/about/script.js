@@ -117,3 +117,6 @@ $('.copy').click(function() {
     this.style.border = "2px solid #C5EC00";
     navigator.clipboard.writeText(form_text.text());
 })
+$().ready(function(){
+  $('.form_text').text(window.location.href);
+});
