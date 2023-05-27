@@ -28,7 +28,9 @@ $('.plus').click(function(){
   quantity++;
   $('input[name="quantity"]').val(quantity);
   $('#nft-quantity').text(quantity);
-//  alert(quantity);
+
+  let price = Number($('.sum').attr('price'));
+  $('.sum').text(price * quantity);
 
 });
 $('.minus').click(function(){
@@ -38,6 +40,9 @@ $('.minus').click(function(){
   quantity--;
   $('input[name="quantity"]').val(quantity);
   $('#nft-quantity').text(quantity);
+  let price = Number($('.sum').attr('price'));
+  $('.sum').text(price * quantity);
+
 });
 $('.plus-mob').click(function(){
   let quantity = $('input[name="quantity"]').val();
@@ -47,6 +52,9 @@ $('.plus-mob').click(function(){
   quantity++;
   $('input[name="quantity"]').val(quantity);
   $('#nft-quantity-mob').text(quantity);
+  let price = Number($('.sum').attr('price'));
+  $('.sum').text(price * quantity);
+
 //  alert(quantity);
 
 });
@@ -57,6 +65,9 @@ $('.minus-mob').click(function(){
   quantity--;
   $('input[name="quantity"]').val(quantity);
   $('#nft-quantity-mob').text(quantity);
+  let price = Number($('.sum').attr('price'));
+  $('.sum').text(price * quantity);
+
 });
 
 

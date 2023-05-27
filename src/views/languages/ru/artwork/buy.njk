@@ -30,7 +30,7 @@
 
                       <div class="head-info">
                          <div class="artwork-type">
-                           Токен
+                           Благодарность: pre-NFT
                          </div>
                       </div>
 
@@ -38,7 +38,7 @@
                       <div class="answer">Делая пожертвование, вы можете получить цифровую копию картины (pre-NFT) или оригинал.
                       </div>
                       <div class="head">
-                          <p class="price">{{artwork.token.price}} &#8381;</p>
+                          <p class="price"><span class="sum" price='{{artwork.token.price}}'>{{artwork.token.price}}</span> &#8381;</p>
                           <p class="how-many-left">Осталось {{artwork.token.rest}} шт.</p>
                        </div>
                        <div class="quantity">
@@ -60,7 +60,7 @@
                        {% endif %}
                        <div class="head-info">
                          <div class="artwork-type">
-                           Картина
+                           Благодарность: картина
                          </div>
                        </div>
 
@@ -68,7 +68,7 @@
                           <p class="price">{{artwork.original.price}} &#8381;</p>
                        </div>
                        {% if artwork.original.rest > 0 %}
-                          <button type="button" class="btn-black buy-original-button">Купить картину</button>
+                          <button type="button" class="btn-black buy-original-button">Поддержать</button>
                        {% else %}
                           <button class="btn-red" disabled>Продано</button>
                        {% endif %}
@@ -95,7 +95,7 @@
 
                    <div class="head-info">
                       <div class="artwork-type">
-                         Токен
+                         Благодарность: pre-NFT
                       </div>
                    </div>
 
@@ -103,7 +103,7 @@
                    <div class="answer">Делая пожертвование, вы можете получить цифровую копию картины (pre-NFT) или оригинал.
                    </div>
                    <div class="head">
-                      <p class="price">{{artwork.token.price}} &#8381;</p>
+                      <p class="price"><span class="sum" price='{{artwork.token.price}}'>{{artwork.token.price}}</span> &#8381;</p>
                       <p class="how-many-left">Осталось {{artwork.token.rest}} шт.</p>
                    </div>
                    <div class="quantity">
@@ -125,14 +125,14 @@
                    {% endif %}
                    <div class="head-info">
                       <div class="artwork-type">
-                         Картина
+                         Благодарность: картина
                       </div>
                    </div>
                    <div class="head">
                       <p class="price">{{artwork.original.price}} &#8381;</p>
                    </div>
                    {% if artwork.original.rest > 0 %}
-                      <button type="button" class="btn-black buy-original-button">Купить картину</button>
+                      <button type="button" class="btn-black buy-original-button">Поддержать</button>
                    {% else %}
                       <button class="btn-red" disabled>Продано</button>
                    {% endif %}
